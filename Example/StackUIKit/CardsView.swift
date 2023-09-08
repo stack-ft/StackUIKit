@@ -10,16 +10,19 @@ import SwiftUI
 import StackUIKit
 
 struct CardsView: View {
+    var config: CardConfiguration {
+        return CardConfiguration(primaryColor: "#0d0d0d", cardBrand: .visa)
+    }
     var body: some View {
         ScrollView {
             VStack {
                 StackUI.Cards.BalanceCard1(action: {
                     print("Tapped")
-                })
+                }, config: config)
                 .onTapGesture {
                     print("Tap Gesture")
                 }
-                .softShadow()
+                .softShadow(color: "#0d0d0d")
                 .padding(.bottom)
                 
                 StackUI.Cards.DebitCard(action: {
@@ -29,6 +32,8 @@ struct CardsView: View {
                     print("Tap Gesture")
                 }
                 .padding(.bottom)
+                
+                StackUI.Cards.InformationCard()
                 
                 
                 Spacer()

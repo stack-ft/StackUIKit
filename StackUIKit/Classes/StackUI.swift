@@ -40,6 +40,25 @@ public enum StackUI {
             DebitCard1(config: config)
         }
         
+        public static func InformationCard(action: (() -> Void)? = nil, config: CardConfiguration = defaultCardConfig()) -> some View {
+            InformationCard1(config: config)
+        }
+        
+    }
+    
+    //MARK: - TextFields
+    public enum TextFields {
+        public static func CurrencyTextField(amount: Binding<String>, config: TextFieldConfiguration = defaultTextFieldConfig()) -> some View {
+            TextField1(amount: amount, config: config)
+        }
+        
+        public static func BasicTextField(text: Binding<String>, config: TextFieldConfiguration = defaultTextFieldConfig()) -> some View {
+            TextField2(text: text, config: config)
+        }
+        
+        public static func SecureTextField(text: Binding<String>, config: TextFieldConfiguration = defaultTextFieldConfig()) -> some View {
+            TextField3(text: text, config: config)
+        }
     }
 
 }
@@ -53,3 +72,11 @@ public func defaultButtonConfig() -> ButtonConfiguation {
 public func defaultCardConfig() -> CardConfiguration {
     return CardConfiguration()
 }
+
+public func defaultTextFieldConfig() -> TextFieldConfiguration {
+    return TextFieldConfiguration()
+}
+
+
+let bundle = Bundle(for: StackUIClass.self)
+class StackUIClass {}

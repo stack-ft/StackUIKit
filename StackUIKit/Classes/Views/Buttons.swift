@@ -22,7 +22,7 @@ struct Button1: View {
     var body: some View {
         Button(action: self.action) {
             Text(self.label)
-                .fontWeight(.medium)
+                .fontWeight(config.size == .large ? .bold : .medium)
                 .frame(maxWidth: widthForButton())
                 .padding(.vertical, heightForButton())
                 .padding()
@@ -52,7 +52,7 @@ struct Button1: View {
         case .large:
             return 10.0
         case .medium:
-            return 0.0
+            return 3.0
         case .small:
             return -5.0
         }
@@ -106,7 +106,7 @@ struct Button2: View {
         case .large:
             return 10.0
         case .medium:
-            return 0.0
+            return 3.0
         case .small:
             return -5.0
         }

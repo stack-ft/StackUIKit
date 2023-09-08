@@ -9,11 +9,16 @@ import SwiftUI
 
 struct Card1: View {
     let config: CardConfiguration
-    
+    @State var isVisible: Bool = false
     var body: some View {
         ZStack {
             Color.clear
             cardBackground(background: config.primaryColor, cornerRadius: 20)
+                .overlay(
+                    Image(config.cardOverlayImg, bundle: bundle)
+                        .resizable()
+                        .scaledToFill()
+                )
                 .overlay(
                     VStack(spacing: 5) {
                         HStack {
@@ -23,22 +28,32 @@ struct Card1: View {
                                 .font(.system(size: 20, weight: .bold))
                         }
                         Spacer()
-                        HStack {
+                        HStack(spacing: 10) {
                             Text("Balance")
                                 .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.7)))
                                 .font(.system(size: 16, weight: .regular))
+                            
+                            Button(action: togglevisibility) {
+                                Image(isVisible ? "hide" : "view", bundle: bundle)
+                                    .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.7)))
+                            }
                             Spacer()
                         }
                         
                         HStack {
-                            Text(config.amount)
+                            Text(isVisible ? config.amount : "***")
                                 .foregroundColor(Color(UIColor(hex: config.textColor)))
                                 .font(.system(size: 25, weight: .black))
                             Spacer()
+                            Image(config.cardBrand.imageName, bundle: bundle)
                         }
                     }.padding(25)
                 )
         }
+    }
+    
+    private func togglevisibility() {
+        isVisible.toggle()
     }
 }
 
@@ -66,9 +81,13 @@ struct InformationCard1: View {
                 )
                 .overlay(
                     HStack(spacing: 10) {
-                        Circle()
-                            .fill(Color(UIColor(hex: "F7FAFC")))
-                            .frame(width: 50, height: 50)
+                        ZStack{
+                            Circle()
+                                .fill(Color(UIColor(hex: "F7FAFC")))
+                                .frame(width: 50, height: 50)
+                            
+                            Image("bell", bundle: bundle)
+                        }
                         
                         VStack(alignment: .leading, spacing: 2) {
                             Text("Information Title")

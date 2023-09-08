@@ -12,7 +12,7 @@ import StackUIKit
 struct MainView: View {
     var body: some View {
         NavigationView {
-            VStack(spacing: 10) {
+            VStack(spacing: 20) {
                 NavigationLink(destination: {
                     ButtonsView()
                 }, label: {
@@ -23,6 +23,12 @@ struct MainView: View {
                     CardsView()
                 }, label: {
                     Text("Cards")
+                })
+                
+                NavigationLink(destination: {
+                    TextFieldView()
+                }, label: {
+                    Text("TextFields")
                 })
             }
         }

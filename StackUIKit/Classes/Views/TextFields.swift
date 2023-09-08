@@ -9,16 +9,17 @@ import SwiftUI
 import UIKit
 
 struct TextField1: View {
-    @State private var amount: String = ""
-
+    @Binding var amount: String
+    let config: TextFieldConfiguration
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: config.cornerRadius)
                 .fill(.clear)
-                .frame(maxWidth: .infinity, maxHeight: 100)
+                .frame(width: .infinity, height: 100)
                 .overlay (
-                    RoundedRectangle(cornerRadius: 20)
+                    RoundedRectangle(cornerRadius: config.cornerRadius)
                         .stroke(Color(UIColor(hex: "EDF2F7")), lineWidth: 1)
+                        .frame(width: .infinity, height: 100)
                 )
                 .overlay (
                     VStack(alignment: .leading) {
@@ -28,12 +29,16 @@ struct TextField1: View {
                             .padding(2)
                         Spacer()
                         HStack(spacing: 3) {
-                            Text("$")
+                            Text(config.currencySymbol)
                                 .font(.system(size: 35, weight: .bold))
                             CurrencyTextFieldWrapper(text: $amount)
-                                .frame(maxHeight: 40)
-                            .keyboardType(.decimalPad)
+                                .frame(height: 40)
+                                .keyboardType(.decimalPad)
                             Spacer()
+                            Image(config.placeHolderImage, bundle: bundle)
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .clipShape(Circle())
                         }
                         .padding(2)
                     }.padding()
@@ -43,13 +48,92 @@ struct TextField1: View {
     
 }
 
+struct TextField2: View {
+    @Binding var text: String
+    @State var isActive: Bool = false
+    let config: TextFieldConfiguration
+    
+    var body: some View {
+        RoundedRectangle(cornerRadius: config.cornerRadius)
+            .fill(.clear)
+            .frame(height: 60)
+            .overlay (
+                RoundedRectangle(cornerRadius: config.cornerRadius)
+                    .stroke(Color(UIColor(hex: isActive ? config.activeColor : "EDF2F7")), lineWidth: 1)
+                    .frame(height: 60)
+            )
+            .overlay (
+                TextField(config.placeHolderText, text: $text, onEditingChanged: { isEditing in
+                    if isEditing {
+                        isActive = true
+                    } else {
+                        isActive = false
+                    }
+                })
+                .font(.system(size: 17, weight: .regular))
+                .padding()
+            )
+    }
+}
+
+struct TextField3: View {
+    @Binding var text: String
+    @State var isActive: Bool = false
+    @State private var isPasswordVisible: Bool = false
+    let config: TextFieldConfiguration
+    
+    var body: some View {
+        RoundedRectangle(cornerRadius: config.cornerRadius)
+            .fill(.clear)
+            .frame(height: 60)
+            .overlay (
+                RoundedRectangle(cornerRadius: config.cornerRadius)
+                    .stroke(Color(UIColor(hex: isActive ? config.activeColor: "EDF2F7")), lineWidth: 1)
+                    .frame(height: 60)
+            )
+            .overlay (
+                HStack {
+                    if isPasswordVisible {
+                        TextField(config.placeHolderText, text: $text, onEditingChanged: { isEditing in
+                            if isEditing {
+                                isActive = true
+                            } else {
+                                isActive = false
+                            }
+                        })
+                        .font(.system(size: 17, weight: .regular))
+                    } else {
+                        SecureField(config.placeHolderText, text: $text, onCommit: {
+                            isActive = false
+                        })
+                        .onTapGesture {
+                            isActive = true
+                        }
+                        .font(.system(size: 17, weight: .regular))
+                    }
+                    
+                    Button(action: toggleVisibility) {
+                        Image(isPasswordVisible ? "hide" : "view", bundle: bundle)
+                            .foregroundColor(Color(UIColor(hex: "A0AEC0")))
+                    }
+                    
+                }.padding()
+                
+            )
+    }
+    
+    private func toggleVisibility() {
+        isPasswordVisible.toggle()
+    }
+}
+
 
 //WIP
 struct DropdownMenuView: View {
     @State private var selectedValue = "Option 1"
     let options = ["Option 1", "Option 2", "Option 3"]
     @State var showStoreDropDown: Bool = false
-
+    
     var body: some View {
         VStack {
             Button(action: {
@@ -89,7 +173,7 @@ struct DropdownMenuView: View {
 
 struct SampleDropDown: View {
     
-  
+    
     let action : (String?) -> Void
     
     var body: some View {
@@ -115,7 +199,7 @@ struct SampleDropDown: View {
                         VStack (alignment: .leading){
                             Text("ANDROID" )
                                 .font(.system(size: 18, weight: .medium))
-
+                            
                                 .padding([.leading, .top], 4)
                             
                             Text("#jetpack")
@@ -135,7 +219,7 @@ struct SampleDropDown: View {
             }
             
         }.padding(.all, 12)
-        .background(RoundedRectangle(cornerRadius: 6).foregroundColor(.white).shadow(radius: 2))
+            .background(RoundedRectangle(cornerRadius: 6).foregroundColor(.white).shadow(radius: 2))
         
     }
 }
@@ -188,5 +272,5 @@ struct CurrencyTextFieldWrapper: UIViewRepresentable {
             return false
         }
     }
-
+    
 }

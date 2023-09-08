@@ -17,7 +17,7 @@
 		222C6EC62AAA988A009779AC /* TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6EC32AAA988A009779AC /* TextFields.swift */; };
 		222C6EC72AAA988A009779AC /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6EC42AAA988A009779AC /* Buttons.swift */; };
 		222C6EC92AAA9893009779AC /* StackUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6EC82AAA9893009779AC /* StackUI.swift */; };
-		28428F67AD23DA6C4054E0C815B5EF14 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54495AB15BDCDF8170E1705C3982993F /* ReplaceMe.swift */; };
+		222C6ED42AAAA363009779AC /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222C6ED32AAAA363009779AC /* Media.xcassets */; };
 		3DD142DDBED901E10F017B931523D54C /* Pods-StackUIKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7157DFA796D01054B53B038DFE1DDA93 /* Pods-StackUIKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B67A323A6F93D97C5917D09E7AC25B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		81BCEA7EEF607FEBA08617F2B5ECE29F /* StackUIKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F63B765933540CCE2462386AE947598A /* StackUIKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -58,12 +58,12 @@
 		222C6EC32AAA988A009779AC /* TextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFields.swift; path = ../StackUIKit/Classes/Views/TextFields.swift; sourceTree = "<group>"; };
 		222C6EC42AAA988A009779AC /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Buttons.swift; path = ../StackUIKit/Classes/Views/Buttons.swift; sourceTree = "<group>"; };
 		222C6EC82AAA9893009779AC /* StackUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackUI.swift; path = StackUIKit/Classes/StackUI.swift; sourceTree = "<group>"; };
+		222C6ED32AAAA363009779AC /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		3669E00D7045071F1201CF095AE7B398 /* StackUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StackUIKit.debug.xcconfig; sourceTree = "<group>"; };
 		422F196DAC2A3DFE9FAE1F921E63D167 /* Pods-StackUIKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StackUIKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		42A5E9DB47447FCF6781F3C5958A83AB /* Pods-StackUIKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-StackUIKit_Tests.modulemap"; sourceTree = "<group>"; };
 		438392D87612550F4AE736228DBC3CED /* Pods-StackUIKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-StackUIKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		480C3B3E93DCE3414060F1BF9E8308A7 /* StackUIKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = StackUIKit.podspec; sourceTree = "<group>"; tabWidth = 2; };
-		54495AB15BDCDF8170E1705C3982993F /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = StackUIKit/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		54F4B7F354871A56948112B3579E2596 /* Pods-StackUIKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StackUIKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		691FD3FCAC095429D2703952CB48D54A /* Pods-StackUIKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-StackUIKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6992B50FCE9A019667A9F3582FABB199 /* StackUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StackUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +145,7 @@
 		222C6ED02AAA9B6E009779AC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				222C6ED32AAAA363009779AC /* Media.xcassets */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -153,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				222C6EC82AAA9893009779AC /* StackUI.swift */,
-				54495AB15BDCDF8170E1705C3982993F /* ReplaceMe.swift */,
 				222C6ED02AAA9B6E009779AC /* Images */,
 				222C6EBB2AAA982A009779AC /* Views */,
 				222C6EBA2AAA981C009779AC /* Helpers */,
@@ -402,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				222C6ED42AAAA363009779AC /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,7 +429,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28428F67AD23DA6C4054E0C815B5EF14 /* ReplaceMe.swift in Sources */,
 				222C6EC12AAA987B009779AC /* StackUI+Configurations.swift in Sources */,
 				222C6EBF2AAA987B009779AC /* StackUI+Extensions.swift in Sources */,
 				222C6EC92AAA9893009779AC /* StackUI.swift in Sources */,
