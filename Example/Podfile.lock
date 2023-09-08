@@ -1,0 +1,16 @@
+PODS:
+  - StackUIKit (0.1.0)
+
+DEPENDENCIES:
+  - StackUIKit (from `../`)
+
+EXTERNAL SOURCES:
+  StackUIKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  StackUIKit: 4f88d637c0f6a3798daa8fd3d8a9dc65cbc0c704
+
+PODFILE CHECKSUM: 6be031dd80f31af6ce3f2445b4d81440b74bde37
+
+COCOAPODS: 1.12.1

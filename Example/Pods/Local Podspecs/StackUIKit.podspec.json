@@ -1,0 +1,22 @@
+{
+  "name": "StackUIKit",
+  "version": "0.1.0",
+  "summary": "A short description of StackUIKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/118879304/StackUIKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "118879304": "ailemenizzy@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/118879304/StackUIKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "StackUIKit/Classes/**/*"
+}

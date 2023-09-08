@@ -1,0 +1,6 @@
+framework module StackUIKit {
+  umbrella header "StackUIKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

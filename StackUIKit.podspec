@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'StackUIKit'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of StackUIKit.'
+  s.version          = '1.0.0'
+  s.summary          = 'A robust UIKit for rapidly building Fintech applications'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,20 +17,19 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+s.description      = 'Introducing our advanced UIKit designed specifically for the Fintech sector. Our toolkit offers a comprehensive suite of tools and components tailored to meet the unique demands of financial technology applications. Whether you are looking to create a digital banking platform, a cryptocurrency wallet, or any other Fintech solution, our UIKit provides a robust foundation to accelerate your development process. With a focus on reliability, scalability, and user experience, our UIKit ensures that developers can rapidly build and deploy Fintech applications without compromising on performance or security. Dive into a world of seamless development with our meticulously crafted tools and witness a transformative approach to Fintech application design and implementation.'
 
   s.homepage         = 'https://github.com/118879304/StackUIKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '118879304' => 'ailemenizzy@gmail.com' }
+  s.author           = { 'Stack Financial' => 'developers@stack-ft.com' }
   s.source           = { :git => 'https://github.com/118879304/StackUIKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '14.0'
 
-  s.source_files = 'StackUIKit/Classes/**/*'
+  s.source_files = 'StackUIKit/Classes/**/*.{swift,storyboard,xib}'
+  s.resources = 'StackUIKit/**/*.{otf,xcassets,strings,gif,svg}'
   
   # s.resource_bundles = {
   #   'StackUIKit' => ['StackUIKit/Assets/*.png']

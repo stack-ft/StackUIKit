@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0B95BE2BEF2B36E09F60C319 /* Pods_StackUIKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B79CF560C92122C525BC55 /* Pods_StackUIKit_Tests.framework */; };
+		222C6ECB2AAA9917009779AC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6ECA2AAA9917009779AC /* MainView.swift */; };
+		222C6ECD2AAA9AB3009779AC /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6ECC2AAA9AB3009779AC /* ButtonsView.swift */; };
+		222C6ECF2AAA9ABF009779AC /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6ECE2AAA9ABF009779AC /* CardsView.swift */; };
 		5252D80D42FEB9D20122D6B0 /* Pods_StackUIKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BBE93715E3941B28249AD90 /* Pods_StackUIKit_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -29,8 +32,11 @@
 
 /* Begin PBXFileReference section */
 		0BBE93715E3941B28249AD90 /* Pods_StackUIKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackUIKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		449107C032EAAA82678B2613 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		485DFFF4A472FDDECC822FF3 /* StackUIKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = StackUIKit.podspec; path = ../StackUIKit.podspec; sourceTree = "<group>"; };
+		222C6ECA2AAA9917009779AC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		222C6ECC2AAA9AB3009779AC /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
+		222C6ECE2AAA9ABF009779AC /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		449107C032EAAA82678B2613 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		485DFFF4A472FDDECC822FF3 /* StackUIKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = StackUIKit.podspec; path = ../StackUIKit.podspec; sourceTree = "<group>"; };
 		542615CFAA209C52A33847D5 /* Pods-StackUIKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackUIKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-StackUIKit_Example/Pods-StackUIKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* StackUIKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackUIKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,7 +49,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		91B79CF560C92122C525BC55 /* Pods_StackUIKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StackUIKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE08E6A5EC8367E0C39F9AF2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BE08E6A5EC8367E0C39F9AF2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C064C8F0EFA4C8AE3BEC0BFB /* Pods-StackUIKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackUIKit_Example.release.xcconfig"; path = "Target Support Files/Pods-StackUIKit_Example/Pods-StackUIKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D4131F298A0649E312273AD0 /* Pods-StackUIKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackUIKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-StackUIKit_Tests/Pods-StackUIKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB6696A9EF6B181D047F86AF /* Pods-StackUIKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackUIKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-StackUIKit_Tests/Pods-StackUIKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,7 +83,6 @@
 				D4131F298A0649E312273AD0 /* Pods-StackUIKit_Tests.debug.xcconfig */,
 				EB6696A9EF6B181D047F86AF /* Pods-StackUIKit_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -107,6 +112,9 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				222C6ECA2AAA9917009779AC /* MainView.swift */,
+				222C6ECC2AAA9AB3009779AC /* ButtonsView.swift */,
+				222C6ECE2AAA9ABF009779AC /* CardsView.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -227,6 +235,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -332,6 +341,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				222C6ECF2AAA9ABF009779AC /* CardsView.swift in Sources */,
+				222C6ECB2AAA9917009779AC /* MainView.swift in Sources */,
+				222C6ECD2AAA9AB3009779AC /* ButtonsView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StackUIKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -494,6 +507,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StackUIKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -516,6 +530,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -534,6 +549,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
