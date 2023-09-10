@@ -59,6 +59,10 @@ public enum StackUI {
         public static func SecureTextField(text: Binding<String>, config: TextFieldConfiguration = defaultTextFieldConfig()) -> some View {
             TextField3(text: text, config: config)
         }
+        
+        public static func SearchTextField(text: Binding<String>, config: TextFieldConfiguration = defaultTextFieldConfig()) -> some View {
+            TextField4(text: text, config: config)
+        }
     }
 
 }

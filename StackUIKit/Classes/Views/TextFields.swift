@@ -54,25 +54,48 @@ struct TextField2: View {
     let config: TextFieldConfiguration
     
     var body: some View {
-        RoundedRectangle(cornerRadius: config.cornerRadius)
-            .fill(.clear)
-            .frame(height: 60)
-            .overlay (
-                RoundedRectangle(cornerRadius: config.cornerRadius)
-                    .stroke(Color(UIColor(hex: isActive ? config.activeColor : "EDF2F7")), lineWidth: 1)
-                    .frame(height: 60)
-            )
-            .overlay (
-                TextField(config.placeHolderText, text: $text, onEditingChanged: { isEditing in
-                    if isEditing {
-                        isActive = true
-                    } else {
-                        isActive = false
-                    }
-                })
-                .font(.system(size: 17, weight: .regular))
-                .padding()
-            )
+        VStack(alignment: .leading, spacing: 10) {
+            RoundedRectangle(cornerRadius: config.cornerRadius)
+                .fill(.clear)
+                .frame(height: 60)
+                .overlay (
+                    RoundedRectangle(cornerRadius: config.cornerRadius)
+                        .stroke(Color(UIColor(hex: isActive ? strokeColor() : "EDF2F7")), lineWidth: 1)
+                        .frame(height: 60)
+                )
+                .overlay (
+                    TextField(config.placeHolderText, text: $text, onEditingChanged: { isEditing in
+                        if isEditing {
+                            isActive = true
+                        } else {
+                            if config.validationType.isValid(string: text) {
+                                isActive = false
+                            }
+                        }
+                    })
+                    .font(.system(size: 17, weight: .regular))
+                    .padding()
+                )
+            
+            if !text.isEmpty && !config.validationType.isValid(string: text) {
+                HStack(spacing: 5) {
+                    Image("alert", bundle: bundle)
+                        .foregroundColor(Color(UIColor(hex: "DD3333")))
+                    
+                    Text(config.validationType.errorMessage)
+                        .foregroundColor(Color(UIColor(hex: "DD3333")))
+                        .font(.system(size: 14, weight: .regular))
+                }
+            }
+        }
+    }
+    
+    private func strokeColor() -> String {
+        if !text.isEmpty && !config.validationType.isValid(string: text) {
+            return "DD3333"
+        } else {
+            return config.activeColor
+        }
     }
 }
 
@@ -83,144 +106,160 @@ struct TextField3: View {
     let config: TextFieldConfiguration
     
     var body: some View {
-        RoundedRectangle(cornerRadius: config.cornerRadius)
-            .fill(.clear)
-            .frame(height: 60)
-            .overlay (
-                RoundedRectangle(cornerRadius: config.cornerRadius)
-                    .stroke(Color(UIColor(hex: isActive ? config.activeColor: "EDF2F7")), lineWidth: 1)
-                    .frame(height: 60)
-            )
-            .overlay (
-                HStack {
-                    if isPasswordVisible {
-                        TextField(config.placeHolderText, text: $text, onEditingChanged: { isEditing in
-                            if isEditing {
+        VStack(alignment: .leading, spacing: 10) {
+            RoundedRectangle(cornerRadius: config.cornerRadius)
+                .fill(.clear)
+                .frame(height: 60)
+                .overlay (
+                    RoundedRectangle(cornerRadius: config.cornerRadius)
+                        .stroke(Color(UIColor(hex: isActive ? strokeColor() : "EDF2F7")), lineWidth: 1)
+                        .frame(height: 60)
+                )
+                .overlay (
+                    HStack {
+                        if isPasswordVisible {
+                            TextField(config.placeHolderText, text: $text, onEditingChanged: { isEditing in
+                                if isEditing {
+                                    isActive = true
+                                } else {
+                                    if config.validationType.isValid(string: text) {
+                                        isActive = false
+                                    }
+                                }
+                            })
+                            .font(.system(size: 17, weight: .regular))
+                        } else {
+                            SecureField(config.placeHolderText, text: $text, onCommit: {
+                                if config.validationType.isValid(string: text) {
+                                    isActive = false
+                                }
+                            })
+                            .onTapGesture {
                                 isActive = true
-                            } else {
-                                isActive = false
                             }
-                        })
-                        .font(.system(size: 17, weight: .regular))
-                    } else {
-                        SecureField(config.placeHolderText, text: $text, onCommit: {
-                            isActive = false
-                        })
-                        .onTapGesture {
-                            isActive = true
+                            .font(.system(size: 17, weight: .regular))
                         }
-                        .font(.system(size: 17, weight: .regular))
-                    }
+                        
+                        Button(action: toggleVisibility) {
+                            Image(isPasswordVisible ? "hide" : "view", bundle: bundle)
+                                .foregroundColor(Color(UIColor(hex: "A0AEC0")))
+                        }
+                        
+                    }.padding()
                     
-                    Button(action: toggleVisibility) {
-                        Image(isPasswordVisible ? "hide" : "view", bundle: bundle)
-                            .foregroundColor(Color(UIColor(hex: "A0AEC0")))
-                    }
+                )
+            
+            if !text.isEmpty && !config.validationType.isValid(string: text) {
+                HStack(spacing: 5) {
+                    Image("alert", bundle: bundle)
+                        .foregroundColor(Color(UIColor(hex: "DD3333")))
                     
-                }.padding()
-                
-            )
+                    Text(config.validationType.errorMessage)
+                        .foregroundColor(Color(UIColor(hex: "DD3333")))
+                        .font(.system(size: 14, weight: .regular))
+                }
+            }
+        }
     }
     
     private func toggleVisibility() {
         isPasswordVisible.toggle()
     }
-}
-
-
-//WIP
-struct DropdownMenuView: View {
-    @State private var selectedValue = "Option 1"
-    let options = ["Option 1", "Option 2", "Option 3"]
-    @State var showStoreDropDown: Bool = false
     
-    var body: some View {
-        VStack {
-            Button(action: {
-                showStoreDropDown.toggle()
-            }) {
-                Text("Open Menu")
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .padding()
-                    .background(Color.clear)
-                    .foregroundColor(Color(UIColor(hex: "194BFB")))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10.0)
-                            .stroke(Color( UIColor(hex: "194BFB")), lineWidth: 2)
-                    )
-                    .minimumScaleFactor(0.5)
-                    .lineLimit(1)
-            }
-        }.overlay (
-            
-            VStack {
-                
-                if showStoreDropDown {
-                    
-                    Spacer(minLength: 70)
-                    
-                    SampleDropDown(action: { data in
-                        
-                    })
-                    
-                }
-                
-            }, alignment: .topLeading
-            
-        )
+    private func strokeColor() -> String {
+        if !text.isEmpty && !config.validationType.isValid(string: text) {
+            return "DD3333"
+        } else {
+            return config.activeColor
+        }
     }
 }
 
-struct SampleDropDown: View {
-    
-    
-    let action : (String?) -> Void
-    
+struct TextField4: View {
+    @Binding var text: String
+    @State var isActive: Bool = false
+    let config: TextFieldConfiguration
+    let options = ["apple", "banana", "cherry", "date"]
+    @State var filtered: [String] = []
+    @State var temporaryString: String = ""
     var body: some View {
-        
-        
-        VStack(alignment: .leading, spacing: 4){
-            
-            ForEach(0...3, id: \.self){ valueStore in
-                
-                Button(action: {
-                    
-                    
-                    
-                }) {
-                    
-                    HStack(alignment: .center, spacing: 8) {
-                        
-                        Image(systemName: "bell")
-                            .resizable()
-                            .frame(width: 30, height: 30, alignment: .center)
-                            .clipShape(Circle())
-                        
-                        VStack (alignment: .leading){
-                            Text("ANDROID" )
-                                .font(.system(size: 18, weight: .medium))
-                            
-                                .padding([.leading, .top], 4)
-                            
-                            Text("#jetpack")
-                                .font(.system(size: 14, weight: .regular))
-                                .padding([.leading, .bottom], 2)
-                            
+        VStack(spacing: 10) {
+            RoundedRectangle(cornerRadius: config.cornerRadius)
+                .fill(.clear)
+                .frame(height: 60)
+                .overlay (
+                    RoundedRectangle(cornerRadius: config.cornerRadius)
+                        .stroke(Color(UIColor(hex: isActive ? config.activeColor : "EDF2F7")), lineWidth: 1)
+                        .frame(height: 60)
+                )
+                .overlay (
+                    TextField(config.placeHolderText, text: $text, onEditingChanged: { isEditing in
+                        if isEditing {
+                            withAnimation {
+                                isActive = true
+                            }
+                        } else {
+                            withAnimation {
+                                isActive = false
+                            }
                         }
-                        
-                        
-                    }.foregroundColor(Color(UIColor(hex: "718096")))
-                    
-                }.frame(width: .none, height: .none, alignment: .center)
-                
-                
-                Divider().background(Color(UIColor(hex: "718096")))
-                
-            }
+                    })
+                    .onChange(of: text) { newValue in
+                        if !isActive && temporaryString != newValue {
+                            isActive = true
+                        }
+                        DispatchQueue.main.async {
+                            filtered = options.filter { $0.lowercased().contains(newValue.lowercased()) }
+                        }
+                    }
+                        .font(.system(size: 17, weight: .regular))
+                        .padding()
+                )
             
-        }.padding(.all, 12)
-            .background(RoundedRectangle(cornerRadius: 6).foregroundColor(.white).shadow(radius: 2))
+            if isActive {
+                searchResults()
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func searchResults() -> some View {
+        ZStack {
+            if filtered != [] {
+                RoundedRectangle(cornerRadius: config.cornerRadius)
+                    .stroke(Color(UIColor(hex: "EDF2F7")), lineWidth: 1)
+                    .frame(width: .infinity)
+                VStack {
+                    ForEach(filtered, id: \.self) { value in
+                        Button(action: {
+                            withAnimation {
+                                text = value
+                                temporaryString = value
+                                isActive.toggle()
+                            }
+                        }) {
+                            HStack {
+                                Text(value)
+                                    .padding()
+                                    .foregroundColor(Color(UIColor(hex: "1A202C")))
+                                Spacer()
+                            }
+                        }
+                        .padding(.bottom, filtered.last == value ? 7 : 0)
+                        .padding(.top, filtered.first == value ? 7 : 0)
+                        divider(isLast: filtered.last == value)
+                    }
+                }
+            }
+        }
         
+    }
+    
+    @ViewBuilder
+    private func divider(isLast: Bool) -> some View {
+        if !isLast {
+            Divider()
+        }
     }
 }
 

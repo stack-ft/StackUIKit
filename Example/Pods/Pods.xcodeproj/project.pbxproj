@@ -18,6 +18,7 @@
 		222C6EC72AAA988A009779AC /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6EC42AAA988A009779AC /* Buttons.swift */; };
 		222C6EC92AAA9893009779AC /* StackUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6EC82AAA9893009779AC /* StackUI.swift */; };
 		222C6ED42AAAA363009779AC /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222C6ED32AAAA363009779AC /* Media.xcassets */; };
+		222C6EDA2AAE2956009779AC /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6ED92AAE2956009779AC /* Images.swift */; };
 		3DD142DDBED901E10F017B931523D54C /* Pods-StackUIKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7157DFA796D01054B53B038DFE1DDA93 /* Pods-StackUIKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B67A323A6F93D97C5917D09E7AC25B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		81BCEA7EEF607FEBA08617F2B5ECE29F /* StackUIKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F63B765933540CCE2462386AE947598A /* StackUIKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -59,6 +60,7 @@
 		222C6EC42AAA988A009779AC /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Buttons.swift; path = ../StackUIKit/Classes/Views/Buttons.swift; sourceTree = "<group>"; };
 		222C6EC82AAA9893009779AC /* StackUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackUI.swift; path = StackUIKit/Classes/StackUI.swift; sourceTree = "<group>"; };
 		222C6ED32AAAA363009779AC /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		222C6ED92AAE2956009779AC /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Images.swift; path = ../Example/StackUIKit/Images.swift; sourceTree = "<group>"; };
 		3669E00D7045071F1201CF095AE7B398 /* StackUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = StackUIKit.debug.xcconfig; sourceTree = "<group>"; };
 		422F196DAC2A3DFE9FAE1F921E63D167 /* Pods-StackUIKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-StackUIKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		42A5E9DB47447FCF6781F3C5958A83AB /* Pods-StackUIKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-StackUIKit_Tests.modulemap"; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				222C6EC42AAA988A009779AC /* Buttons.swift */,
 				222C6EC22AAA988A009779AC /* Cards.swift */,
+				222C6ED92AAE2956009779AC /* Images.swift */,
 				222C6EC32AAA988A009779AC /* TextFields.swift */,
 			);
 			path = Views;
@@ -433,6 +436,7 @@
 				222C6EBF2AAA987B009779AC /* StackUI+Extensions.swift in Sources */,
 				222C6EC92AAA9893009779AC /* StackUI.swift in Sources */,
 				222C6EC52AAA988A009779AC /* Cards.swift in Sources */,
+				222C6EDA2AAE2956009779AC /* Images.swift in Sources */,
 				129D7A2AC6996338B41085E29C2B9240 /* StackUIKit-dummy.m in Sources */,
 				222C6EC62AAA988A009779AC /* TextFields.swift in Sources */,
 				222C6EC02AAA987B009779AC /* StackUI+Modifiers.swift in Sources */,

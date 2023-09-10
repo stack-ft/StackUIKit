@@ -47,3 +47,10 @@ extension String {
         return self.components(separatedBy: " ").reduce("") { ($0 == "" ? "" : "\($0.first ?? Character(""))") + "\($1.first ?? Character(""))" }
     }
 }
+
+extension Image {
+    public init(stackIcon: StackIcon) {
+        self.init(stackIcon.imageName, bundle: bundle)
+    }
+}
+

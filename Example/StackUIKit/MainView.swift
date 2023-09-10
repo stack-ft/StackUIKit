@@ -30,6 +30,12 @@ struct MainView: View {
                 }, label: {
                     Text("TextFields")
                 })
+                
+                NavigationLink(destination: {
+                    IconsView()
+                }, label: {
+                    Text("Icons")
+                })
             }
         }
     }
