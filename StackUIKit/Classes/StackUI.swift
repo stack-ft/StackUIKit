@@ -27,6 +27,10 @@ public enum StackUI {
         public static func ExpandableButton(actions: [() -> Void], config: ButtonConfiguation = defaultButtonConfig()) -> some View {
             Button4(actions: actions, config: config)
         }
+        
+        public static func LikeButton(action: @escaping () -> Void, config: ButtonConfiguation = defaultButtonConfig()) -> some View {
+            Button5(action: action, config: config)
+        }
     }
     
 //MARK: - Cards
@@ -61,7 +65,7 @@ public enum StackUI {
         }
         
         public static func SearchTextField(text: Binding<String>, config: TextFieldConfiguration = defaultTextFieldConfig()) -> some View {
-            TextField4(text: text, config: config)
+            TextField4(config: config, text: text)
         }
     }
     

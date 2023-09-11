@@ -179,9 +179,15 @@ struct TextField4: View {
     @Binding var text: String
     @State var isActive: Bool = false
     let config: TextFieldConfiguration
-    let options = ["apple", "banana", "cherry", "date"]
+    var options: [String]
     @State var filtered: [String] = []
     @State var temporaryString: String = ""
+    
+    public init(config: TextFieldConfiguration, text: Binding<String>) {
+        self.config = config
+        self.options = config.searchableOptions
+        self._text = text
+    }
     var body: some View {
         VStack(spacing: 10) {
             RoundedRectangle(cornerRadius: config.cornerRadius)

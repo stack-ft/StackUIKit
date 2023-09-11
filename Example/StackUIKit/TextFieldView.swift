@@ -16,6 +16,8 @@ struct TextFieldView: View {
     @State var searchText: String = ""
     @State var emailAddress: String = ""
     @State var strongPass:String = ""
+    
+    var searchOptions = ["Rice", "Beans", "Wheat",  "Potatoes", "Plantain", "Tomatoes"]
     var body: some View {
         ScrollView {
             
@@ -34,7 +36,7 @@ struct TextFieldView: View {
                 
                 Text("Search TextField")
                     .font(.system(size: 15, weight: .medium))
-                StackUI.TextFields.SearchTextField(text: $searchText)
+                StackUI.TextFields.SearchTextField(text: $searchText, config: TextFieldConfiguration(searchableOptions: searchOptions))
                 
                 Group {
                     Text("Basic TextField with email validation")

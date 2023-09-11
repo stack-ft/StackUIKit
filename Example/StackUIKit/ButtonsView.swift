@@ -103,6 +103,10 @@ struct ButtonsView: View {
                     ])
                     .padding(.bottom)
                     
+                    StackUI.Buttons.LikeButton(action: {
+                        
+                    }, config: ButtonConfiguation(primaryColor: "DD3333"))
+                    
                 }
             }
             .padding()

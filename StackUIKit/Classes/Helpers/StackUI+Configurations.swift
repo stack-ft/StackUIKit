@@ -62,19 +62,22 @@ public struct ButtonConfiguation {
     let size: ButtonSize
     let cornerRadius: CGFloat
     let disabled: Bool
+    let isLiked: Bool
     
     public init(textColor: String = "FCFCFC",
                 primaryColor: String = "194BFB",
                 width: ButtonWidth = .full,
                 size: ButtonSize = .medium,
                 cornerRadius: CGFloat = 17.0,
-                disabled: Bool = false) {
+                disabled: Bool = false,
+                isLiked: Bool = false) {
         self.textColor = textColor
         self.primaryColor = primaryColor
         self.width = width
         self.size = size
         self.cornerRadius = cornerRadius
         self.disabled = disabled
+        self.isLiked = isLiked
     }
 }
 
@@ -99,19 +102,22 @@ public struct TextFieldConfiguration {
     let placeHolderImage: String
     let cornerRadius: CGFloat
     let validationType: TextFieldValidations
+    let searchableOptions: [String]
     
     public init(placeHolderText: String = "Enter Text",
                 activeColor: String = "194BFB",
                 currencySymbol: String = "$",
                 placeHolderImage: String = "usa",
                 cornerRadius: CGFloat = 17,
-                validationType: TextFieldValidations = .none) {
+                validationType: TextFieldValidations = .none,
+                searchableOptions: [String] = []) {
         self.placeHolderText = placeHolderText
         self.activeColor = activeColor
         self.currencySymbol = currencySymbol
         self.placeHolderImage = placeHolderImage
         self.cornerRadius = cornerRadius
         self.validationType = validationType
+        self.searchableOptions = searchableOptions
     }
 }
 

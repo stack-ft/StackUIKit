@@ -15,6 +15,7 @@ struct ImageView: View {
         ScrollView {
                 VStack(spacing: 20) {
                     
+
                     StackUI.Images.ExpandingImageView(config: ImageViewConfigurations(image: Image("sample")))
                     StackUI.Images.ExpandingImageView(config: ImageViewConfigurations(image: Image("sample2")))
                     StackUI.Images.ExpandingImageView(config: ImageViewConfigurations(image: Image("sample3")))

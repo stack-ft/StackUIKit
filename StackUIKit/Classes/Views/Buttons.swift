@@ -190,4 +190,37 @@ struct Button4: View {
     }
 }
 
+struct Button5: View {
+    public var action: () -> Void
+    public var config: ButtonConfiguation
+    @State var isLiked: Bool
+    @State private var animate: Bool = false
+    
+    public init(action: @escaping () -> Void, config: ButtonConfiguation) {
+        self.action = action
+        self.config = config
+        self.isLiked = config.isLiked
+    }
+    
+    var body: some View {
+        Button(action: {
+            withAnimation {
+                self.isLiked.toggle()
+                self.animate = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                withAnimation {
+                    self.animate = false
+                }
+            }
+            self.action()
+        }) {
+            Image(stackIcon: isLiked ? .heart_fill : .heart_outline)
+                .foregroundColor(Color(UIColor(hex: config.primaryColor)))
+                .padding()
+                .scaleEffect(animate ? 1.2 : 1.0)
+                .rotationEffect(animate ? .degrees(10) : .degrees(0))
+        }
+    }
+}
 
