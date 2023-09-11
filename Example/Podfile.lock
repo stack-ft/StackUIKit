@@ -1,5 +1,5 @@
 PODS:
-  - StackUIKit (0.1.0)
+  - StackUIKit (1.0.0)
 
 DEPENDENCIES:
   - StackUIKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  StackUIKit: 4f88d637c0f6a3798daa8fd3d8a9dc65cbc0c704
+  StackUIKit: f787dc889437c49a05e0048b414a6d5219210b32
 
 PODFILE CHECKSUM: 6be031dd80f31af6ce3f2445b4d81440b74bde37
 

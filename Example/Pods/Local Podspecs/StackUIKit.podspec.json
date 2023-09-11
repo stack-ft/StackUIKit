@@ -1,22 +1,26 @@
 {
   "name": "StackUIKit",
-  "version": "0.1.0",
-  "summary": "A short description of StackUIKit.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/118879304/StackUIKit",
+  "version": "1.0.0",
+  "summary": "A robust UIKit for rapidly building Fintech applications",
+  "swift_versions": "5.0",
+  "description": "Introducing our advanced UIKit designed specifically for the Fintech sector. Our toolkit offers a comprehensive suite of tools and components tailored to meet the unique demands of financial technology applications. Whether you are looking to create a digital banking platform, a cryptocurrency wallet, or any other Fintech solution, our UIKit provides a robust foundation to accelerate your development process. With a focus on reliability, scalability, and user experience, our UIKit ensures that developers can rapidly build and deploy Fintech applications without compromising on performance or security. Dive into a world of seamless development with our meticulously crafted tools and witness a transformative approach to Fintech application design and implementation.",
+  "homepage": "https://github.com/stack-ft/StackUIKit",
   "license": {
-    "type": "MIT",
+    "type": "Apache",
     "file": "LICENSE"
   },
   "authors": {
-    "118879304": "ailemenizzy@gmail.com"
+    "Stack Financial": "developers@stack-ft.com"
   },
   "source": {
-    "git": "https://github.com/118879304/StackUIKit.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/stack-ft/StackUIKit.git",
+    "tag": "1.0.0"
   },
+  "social_media_url": "https://twitter.com/stackft",
   "platforms": {
-    "ios": "10.0"
+    "ios": "14.0"
   },
-  "source_files": "StackUIKit/Classes/**/*"
+  "source_files": "StackUIKit/Classes/**/*.{swift,storyboard,xib}",
+  "resources": "StackUIKit/**/*.{otf,xcassets,strings,gif,svg}",
+  "swift_version": "5.0"
 }
