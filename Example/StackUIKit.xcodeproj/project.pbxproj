@@ -13,6 +13,7 @@
 		222C6ECF2AAA9ABF009779AC /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6ECE2AAA9ABF009779AC /* CardsView.swift */; };
 		222C6ED62AAAACAA009779AC /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6ED52AAAACAA009779AC /* TextFieldView.swift */; };
 		222C6ED82AACE48C009779AC /* IconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6ED72AACE48C009779AC /* IconsView.swift */; };
+		222C6EE02AAEE2E6009779AC /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6EDF2AAEE2E6009779AC /* ImageView.swift */; };
 		5252D80D42FEB9D20122D6B0 /* Pods_StackUIKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BBE93715E3941B28249AD90 /* Pods_StackUIKit_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 		222C6ECE2AAA9ABF009779AC /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		222C6ED52AAAACAA009779AC /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		222C6ED72AACE48C009779AC /* IconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsView.swift; sourceTree = "<group>"; };
+		222C6EDF2AAEE2E6009779AC /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		449107C032EAAA82678B2613 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		485DFFF4A472FDDECC822FF3 /* StackUIKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = StackUIKit.podspec; path = ../StackUIKit.podspec; sourceTree = "<group>"; };
 		542615CFAA209C52A33847D5 /* Pods-StackUIKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StackUIKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-StackUIKit_Example/Pods-StackUIKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				222C6ECC2AAA9AB3009779AC /* ButtonsView.swift */,
 				222C6ECE2AAA9ABF009779AC /* CardsView.swift */,
 				222C6ED52AAAACAA009779AC /* TextFieldView.swift */,
+				222C6EDF2AAEE2E6009779AC /* ImageView.swift */,
 				222C6ED72AACE48C009779AC /* IconsView.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -346,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				222C6EE02AAEE2E6009779AC /* ImageView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				222C6ECF2AAA9ABF009779AC /* CardsView.swift in Sources */,
 				222C6ED62AAAACAA009779AC /* TextFieldView.swift in Sources */,

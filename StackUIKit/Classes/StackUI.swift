@@ -64,6 +64,13 @@ public enum StackUI {
             TextField4(text: text, config: config)
         }
     }
+    
+    //MARK: - Images
+    public enum Images {
+        public static func ExpandingImageView(config: ImageViewConfigurations) -> some View {
+            ExpandableImageView(config: config)
+        }
+    }
 
 }
 

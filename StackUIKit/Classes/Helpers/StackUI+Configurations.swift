@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // MARK: - Cards Configuration
 
@@ -385,5 +386,25 @@ public enum StackIcon {
         case .wallet_outline:
             return "wallet"
         }
+    }
+}
+
+
+// MARK: - ImageView Configurations
+
+public struct ImageViewConfigurations {
+    let image: Image
+    let initialHeight: CGFloat
+    let initialWidth: CGFloat
+    let cornerRadius: CGFloat
+    
+    public init(image: Image,
+                initialHeight: CGFloat = 200,
+                initialWidth: CGFloat = .infinity,
+                cornerRadius: CGFloat = 20) {
+        self.image = image
+        self.initialHeight = initialHeight
+        self.initialWidth = initialWidth
+        self.cornerRadius = cornerRadius
     }
 }

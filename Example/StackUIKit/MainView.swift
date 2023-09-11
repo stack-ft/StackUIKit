@@ -36,6 +36,12 @@ struct MainView: View {
                 }, label: {
                     Text("Icons")
                 })
+                
+                NavigationLink(destination: {
+                    ImageView()
+                }, label: {
+                    Text("Images")
+                })
             }
         }
     }
