@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
 
 s.description      = 'Introducing our advanced UIKit designed specifically for the Fintech sector. Our toolkit offers a comprehensive suite of tools and components tailored to meet the unique demands of financial technology applications. Whether you are looking to create a digital banking platform, a cryptocurrency wallet, or any other Fintech solution, our UIKit provides a robust foundation to accelerate your development process. With a focus on reliability, scalability, and user experience, our UIKit ensures that developers can rapidly build and deploy Fintech applications without compromising on performance or security. Dive into a world of seamless development with our meticulously crafted tools and witness a transformative approach to Fintech application design and implementation.'
 
-  s.homepage         = 'https://github.com/118879304/StackUIKit'
+  s.homepage         = 'https://github.com/stack-ft/StackUIKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license          = { :type => 'Apache', :file => 'LICENSE' }
   s.author           = { 'Stack Financial' => 'developers@stack-ft.com' }
-  s.source           = { :git => 'https://github.com/118879304/StackUIKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/stack-ft/StackUIKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '14.0'
