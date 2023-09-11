@@ -24,7 +24,7 @@ s.description      = 'Introducing our advanced UIKit designed specifically for t
   s.license          = { :type => 'Apache', :file => 'LICENSE' }
   s.author           = { 'Stack Financial' => 'developers@stack-ft.com' }
   s.source           = { :git => 'https://github.com/stack-ft/StackUIKit.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/stackft'
 
   s.ios.deployment_target = '14.0'
 
