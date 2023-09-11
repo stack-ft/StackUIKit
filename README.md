@@ -22,8 +22,8 @@ pod 'StackUIKit'
 
 ## Author
 
-118879304, ailemenizzy@gmail.com
+Stack Developers  developers@stack-ft.com
 
 ## License
 
-StackUIKit is available under the MIT license. See the LICENSE file for more info.
+StackUIKit is available under the Apache license. See the LICENSE file for more info.

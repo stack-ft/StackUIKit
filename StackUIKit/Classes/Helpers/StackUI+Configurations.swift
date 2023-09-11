@@ -195,6 +195,38 @@ public enum StackIcon {
     case home_outline
     case like_outline
     case lock_outline
+    case mail_outline
+    case map_pin_outline
+    case menu
+    case message_outline
+    case message_fill
+    case minus
+    case dollar_send_fill
+    case money_outline
+    case paypal
+    case phone_outline
+    case plus
+    case printer_outline
+    case circular_question_mark_outline
+    case receipt_tax_outline
+    case receipt_tax_fill
+    case receipt_outline
+    case search_outline
+    case search_fill
+    case settings_outline
+    case share_type_two_outline
+    case share_outline
+    case shop_add_outline
+    case one_star_outline
+    case half_star_fill
+    case half_star_outline
+    case one_star_fill
+    case stats_up_fill
+    case timer_outline
+    case user_outline
+    case user_fill
+    case users_outline
+    case wallet_outline
     
     var imageName: String {
         switch self {
@@ -288,6 +320,70 @@ public enum StackIcon {
             return "like"
         case .lock_outline:
             return "lock"
+        case .mail_outline:
+            return "mail"
+        case .map_pin_outline:
+            return "map-pin"
+        case .menu:
+            return "menu"
+        case .message_outline:
+            return "message"
+        case .message_fill:
+            return "message-1"
+        case .minus:
+            return "minus"
+        case .dollar_send_fill:
+            return "dollar-send"
+        case .money_outline:
+            return "money"
+        case .paypal:
+            return "paypal"
+        case .phone_outline:
+            return "phone"
+        case .plus:
+            return "plus"
+        case .printer_outline:
+            return "printer"
+        case .circular_question_mark_outline:
+            return "question-circle"
+        case .receipt_tax_outline:
+            return "receipt-tax-1"
+        case .receipt_tax_fill:
+            return "receipt-tax"
+        case .receipt_outline:
+            return "receipt"
+        case .search_outline:
+            return "Search"
+        case .search_fill:
+            return "Search-1"
+        case .settings_outline:
+            return "settings"
+        case .share_type_two_outline:
+            return "share-two"
+        case .share_outline:
+            return "share"
+        case .shop_add_outline:
+            return "shop-add"
+        case .one_star_outline:
+            return "star-1"
+        case .half_star_fill:
+            return "star-half-1"
+        case .half_star_outline:
+            return "star-half"
+        case .one_star_fill:
+            return "star"
+        case .stats_up_fill:
+            return "stats-up"
+        case .timer_outline:
+            return "timer"
+        case .user_outline:
+            return "user-1"
+        case .user_fill:
+            return "user"
+        case .users_outline:
+            return "users"
+        case .wallet_outline:
+            return "wallet"
         }
     }
 }

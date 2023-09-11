@@ -76,7 +76,63 @@ struct IconsView: View {
                     Image(stackIcon: .group_outline)
                     Image(stackIcon: .heart_outline)
                     Image(stackIcon: .heart_fill)
+                    Image(stackIcon: .home_fill)
+                    Image(stackIcon: .home_outline)
+                    Image(stackIcon: .like_outline)
+                    Image(stackIcon: .lock_outline)
 
+                }
+            }
+            
+            Group {
+                HStack(spacing: 10) {
+                    Image(stackIcon: .mail_outline)
+                    Image(stackIcon: .map_pin_outline)
+                    Image(stackIcon: .menu)
+                    Image(stackIcon: .message_fill)
+                    Image(stackIcon: .message_outline)
+                    Image(stackIcon: .minus)
+                    Image(stackIcon: .dollar_send_fill)
+                    Image(stackIcon: .money_outline)
+                    Image(stackIcon: .paypal)
+                }
+            }
+            
+            Group {
+                HStack(spacing: 10) {
+                    Image(stackIcon: .phone_outline)
+                    Image(stackIcon: .plus)
+                    Image(stackIcon: .printer_outline)
+                    Image(stackIcon: .circular_question_mark_outline)
+                    Image(stackIcon: .receipt_tax_fill)
+                    Image(stackIcon: .receipt_tax_outline)
+                    Image(stackIcon: .receipt_outline)
+                    Image(stackIcon: .search_fill)
+                    Image(stackIcon: .search_outline)
+                }
+            }
+            
+            Group {
+                HStack(spacing: 10) {
+                    Image(stackIcon: .settings_outline)
+                    Image(stackIcon: .share_type_two_outline)
+                    Image(stackIcon: .share_outline)
+                    Image(stackIcon: .shop_add_outline)
+                    Image(stackIcon: .one_star_fill)
+                    Image(stackIcon: .one_star_outline)
+                    Image(stackIcon: .half_star_fill)
+                    Image(stackIcon: .half_star_outline)
+                    Image(stackIcon: .stats_up_fill)
+                }
+            }
+            
+            Group {
+                HStack(spacing: 10) {
+                    Image(stackIcon: .timer_outline)
+                    Image(stackIcon: .user_fill)
+                    Image(stackIcon: .user_outline)
+                    Image(stackIcon: .users_outline)
+                    Image(stackIcon: .wallet_outline)
                 }
             }
         }
