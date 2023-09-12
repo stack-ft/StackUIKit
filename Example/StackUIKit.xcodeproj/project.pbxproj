@@ -331,10 +331,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-StackUIKit_Example/Pods-StackUIKit_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AlertToast/AlertToast.framework",
 				"${BUILT_PRODUCTS_DIR}/StackUIKit/StackUIKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlertToast.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StackUIKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

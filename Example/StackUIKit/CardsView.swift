@@ -13,27 +13,42 @@ struct CardsView: View {
     var config: CardConfiguration {
         return CardConfiguration(primaryColor: "#0d0d0d", cardBrand: .visa)
     }
+    
+    var config2: CardConfiguration {
+        return CardConfiguration(textColor: "1A202C", primaryColor: "FFFFFF", amount: "$56,476.00")
+    }
+    
+    var config3: CardConfiguration {
+        return CardConfiguration(textColor: "FFFFFF", primaryColor: "FF1744", cardBrand: .masterCard, cardOverlayImg: "card-cover")
+    }
     var body: some View {
         ScrollView {
-            VStack {
-                StackUI.Cards.BalanceCard1(action: {
+            VStack(spacing: 10) {
+                StackUI.Cards.BalanceCard(action: {
                     print("Tapped")
                 }, config: config)
                 .onTapGesture {
                     print("Tap Gesture")
                 }
                 .softShadow(color: "#0d0d0d")
-                .padding(.bottom)
                 
                 StackUI.Cards.DebitCard(action: {
                     print("Tapped")
-                })
+                }, config: config3)
                 .onTapGesture {
                     print("Tap Gesture")
                 }
-                .padding(.bottom)
+
                 
                 StackUI.Cards.InformationCard()
+                
+                StackUI.Cards.BalanceCard(action: {
+                    print("Tapped")
+                }, config: config2, type: .two)
+                .onTapGesture {
+                    print("Tap Gesture")
+                }
+                .softShadow(color: "5D6A83")
                 
                 
                 Spacer()

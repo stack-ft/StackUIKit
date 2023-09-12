@@ -77,7 +77,7 @@ struct SoftShadow: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .shadow(color: Color(UIColor(hex: color)).opacity(0.4), radius: radius, x: x, y: y)
+            .shadow(color: Color(UIColor(hex: color)).opacity(0.2), radius: radius, x: x, y: y)
     }
 }
 

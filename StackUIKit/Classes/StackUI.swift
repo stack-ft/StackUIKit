@@ -36,8 +36,13 @@ public enum StackUI {
 //MARK: - Cards
     public enum Cards {
         
-        public static func BalanceCard1(action: @escaping () -> Void, config: CardConfiguration = defaultCardConfig()) -> some View {
-            Card1(config: config)
+        public static func BalanceCard(action: @escaping () -> Void, config: CardConfiguration = defaultCardConfig(), type: BalanceCardType = .one) -> some View {
+            switch type {
+            case .one:
+                return AnyView(Card1(config: config))
+            case .two:
+                return AnyView(BalanceCard2(config: config, action: action))
+            }
         }
         
         public static func DebitCard(action: @escaping () -> Void, config: CardConfiguration = defaultCardConfig()) -> some View {

@@ -22,5 +22,10 @@
   },
   "source_files": "StackUIKit/Classes/**/*.{swift,storyboard,xib}",
   "resources": "StackUIKit/**/*.{otf,xcassets,strings,gif,svg}",
+  "dependencies": {
+    "AlertToast": [
+
+    ]
+  },
   "swift_version": "5.0"
 }

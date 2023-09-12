@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct Card1: View {
     let config: CardConfiguration
@@ -13,25 +14,32 @@ struct Card1: View {
     var body: some View {
         ZStack {
             Color.clear
-            cardBackground(background: config.primaryColor, cornerRadius: 20)
+            cardBackground(background: config.primaryColor, cornerRadius: config.cornerRadius)
                 .overlay(
-                    Image(config.cardOverlayImg, bundle: bundle)
+                    Image(named: config.cardOverlayImg)
                         .resizable()
                         .scaledToFill()
+                        .mask(RoundedRectangle(cornerRadius: config.cornerRadius))
                 )
                 .overlay(
                     VStack(spacing: 5) {
                         HStack {
                             Spacer()
                             Text(config.brandName)
-                                .foregroundColor(.white)
-                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.7)))
+                                .font(getFont(config: config.font, size: 20))
+                                .fontWeight(.bold)
+                                .minimumScaleFactor(0.5)
+                                .lineLimit(1)
                         }
                         Spacer()
                         HStack(spacing: 10) {
                             Text("Balance")
                                 .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.7)))
-                                .font(.system(size: 16, weight: .regular))
+                                .font(getFont(config: config.font, size: 16))
+                                .fontWeight(.regular)
+                                .minimumScaleFactor(0.5)
+                                .lineLimit(1)
                             
                             Button(action: togglevisibility) {
                                 Image(isVisible ? "hide" : "view", bundle: bundle)
@@ -43,7 +51,10 @@ struct Card1: View {
                         HStack {
                             Text(isVisible ? config.amount : "***")
                                 .foregroundColor(Color(UIColor(hex: config.textColor)))
-                                .font(.system(size: 25, weight: .black))
+                                .font(getFont(config: config.font, size: 25))
+                                .fontWeight(.black)
+                                .minimumScaleFactor(0.5)
+                                .lineLimit(1)
                             Spacer()
                             Image(config.cardBrand.imageName, bundle: bundle)
                         }
@@ -57,12 +68,180 @@ struct Card1: View {
     }
 }
 
+struct BalanceCard2: View {
+    let config: CardConfiguration
+    public var action: () -> Void
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: config.cornerRadius)
+                .fill(Color(UIColor(hex: config.primaryColor)))
+                .frame(width: .infinity, height: 170)
+                .overlay(
+                    VStack {
+                        
+                        HStack {
+                            Text("Balance")
+                                .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.5)))
+                                .font(getFont(config: config.font, size: 16))
+                                .fontWeight(.regular)
+                                .minimumScaleFactor(0.5)
+                                .lineLimit(1)
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                self.action()
+                            }) {
+                                Image(stackIcon: .dots_vertical_fill)
+                                    .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.5)))
+                            }
+                        }
+                        
+                        Spacer()
+                        
+                        
+                        
+                        HStack {
+                            
+                            VStack(alignment: .leading, spacing: 10) {
+                                HStack(spacing: 3) {
+                                    Text(config.amount)
+                                        .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                        .font(getFont(config: config.font, size: 38))
+                                        .fontWeight(.bold)
+                                        .minimumScaleFactor(0.5)
+                                        .lineLimit(1)
+                                    
+                                    Text(config.currency)
+                                        .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.5)))
+                                        .font(getFont(config: config.font, size: 25))
+                                        .fontWeight(.medium)
+                                        .minimumScaleFactor(0.5)
+                                        .lineLimit(1)
+                                    
+                                }
+                                
+                                Text(formattedDate())
+                                    .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.5)))
+                                    .font(getFont(config: config.font, size: 16))
+                                    .fontWeight(.regular)
+                                    .minimumScaleFactor(0.5)
+                                    .lineLimit(1)
+                                
+                            }
+                            
+                            Spacer()
+                        }
+                        
+                    }.padding(25)
+                )
+        }
+    }
+    
+    func formattedDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        return dateFormatter.string(from: Date())
+    }
+}
+
 struct DebitCard1: View {
     let config: CardConfiguration
+    @State var isVisible: Bool = false
+    //TOAST
+    @State var copyNumber: Bool = false
+    
     var body: some View {
         ZStack {
             Color.clear
-            cardBackground(background: config.primaryColor, cornerRadius: 20)
+            cardBackground(background: config.primaryColor, cornerRadius: config.cornerRadius)
+                .overlay(
+                    Image(named: config.cardOverlayImg)
+                        .resizable()
+                        .scaledToFill()
+                        .mask(RoundedRectangle(cornerRadius: config.cornerRadius))
+                )
+                .overlay (
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Button(action: toggleVisibility) {
+                                Image(isVisible ? "hide" : "view", bundle: bundle)
+                                    .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.9)))
+                            }
+                            Spacer()
+                            Text(config.brandName)
+                                .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.9)))
+                                .font(getFont(config: config.font, size: 20))
+                                .fontWeight(.bold)
+                                .minimumScaleFactor(0.5)
+                                .lineLimit(1)
+                        }
+                        Spacer()
+                        
+                        Text(isVisible ? "3827 4637 3103 7389" : "**** 7389")
+                            .foregroundColor(Color(UIColor(hex: config.textColor)))
+                            .font(getFont(config: config.font, size: 25))
+                            .fontWeight(.bold)
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
+                            .toast(isPresenting: $copyNumber, alert: {
+                                AlertToast(type: .regular, title: "Copied!")
+                            },completion: {
+                                copyNumber = false
+                             })
+                            .onTapGesture {
+                                copyNumber = true
+                            }
+                        
+                        Spacer()
+                        
+                        HStack {
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text("Card Holder name")
+                                    .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                    .font(getFont(config: config.font, size: 10))
+                                    .fontWeight(.regular)
+                                    .minimumScaleFactor(0.5)
+                                    .lineLimit(1)
+                                Text("John Doe")
+                                    .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                    .font(getFont(config: config.font, size: 15))
+                                    .fontWeight(.medium)
+                                    .minimumScaleFactor(0.5)
+                                    .lineLimit(1)
+                                
+                            }
+                            Spacer()
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text("Expiry date")
+                                    .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                    .font(getFont(config: config.font, size: 10))
+                                    .fontWeight(.regular)
+                                    .minimumScaleFactor(0.5)
+                                    .lineLimit(1)
+                                Text("02/30")
+                                    .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                    .font(getFont(config: config.font, size: 15))
+                                    .fontWeight(.medium)
+                                    .minimumScaleFactor(0.5)
+                                    .lineLimit(1)
+                            }
+                            Spacer()
+                            Image(config.cardBrand.imageName, bundle: bundle)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 70, height: 35)
+                        }
+                        
+                    }.padding(25)
+                )
+        }
+    }
+    
+    private func toggleVisibility() {
+        withAnimation {
+            isVisible.toggle()
         }
     }
 }
@@ -92,10 +271,12 @@ struct InformationCard1: View {
                         VStack(alignment: .leading, spacing: 2) {
                             Text("Information Title")
                                 .foregroundColor(Color(UIColor(hex: "1A202C")))
-                                .font(.system(size: 16, weight: .medium))
+                                .font(getFont(config: config.font, size: 16))
+                                .fontWeight(.medium)
                             Text("Multi-users access, accounting, and using our API")
                                 .foregroundColor(Color(UIColor(hex: "718096")))
-                                .font(.system(size: 13, weight: .regular))
+                                .font(getFont(config: config.font, size: 13))
+                                .fontWeight(.regular)
                         }
                         
                         Spacer()

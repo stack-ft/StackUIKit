@@ -1,16 +1,23 @@
 PODS:
-  - StackUIKit (1.0.0)
+  - AlertToast (1.3.9)
+  - StackUIKit (1.0.0):
+    - AlertToast
 
 DEPENDENCIES:
   - StackUIKit (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - AlertToast
 
 EXTERNAL SOURCES:
   StackUIKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  StackUIKit: f787dc889437c49a05e0048b414a6d5219210b32
+  AlertToast: e8db15da727beff75500bcf33a78cd617f408fa1
+  StackUIKit: 469bb2386a83a478f2949f2ae3f86b7930866e24
 
-PODFILE CHECKSUM: 6be031dd80f31af6ce3f2445b4d81440b74bde37
+PODFILE CHECKSUM: afe5fe1aee09e6bc39c47d412062993fb096be8f
 
 COCOAPODS: 1.12.1

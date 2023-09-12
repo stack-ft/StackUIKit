@@ -18,6 +18,8 @@ public struct CardConfiguration {
     let brandName: String
     let amount: String
     let cardOverlayImg: String
+    let currency: String
+    let font: FontConfigurations
     
     public init(textColor: String = "FCFCFC",
                 primaryColor: String = "194BFB",
@@ -25,7 +27,9 @@ public struct CardConfiguration {
                 cornerRadius: CGFloat = 20.0,
                 brandName: String = "Your Brand",
                 amount: String = "$500.00",
-                cardOverlayImg: String = "cardMask") {
+                cardOverlayImg: String = "cardMask",
+                currency: String = "USD",
+                font: FontConfigurations = FontConfigurations()) {
         self.primaryColor = primaryColor
         self.textColor = textColor
         self.cardBrand = cardBrand
@@ -33,6 +37,8 @@ public struct CardConfiguration {
         self.brandName = brandName
         self.amount = amount
         self.cardOverlayImg = cardOverlayImg
+        self.currency = currency
+        self.font = font
     }
 }
 
@@ -47,10 +53,17 @@ public enum CardBrand {
         switch self {
         case .visa:
             return "visa"
+        case .masterCard:
+            return "Mastercard"
         default:
             return ""
         }
     }
+}
+
+public enum BalanceCardType {
+    case one
+    case two
 }
 
 // MARK: - Buttons Configuration
@@ -414,3 +427,15 @@ public struct ImageViewConfigurations {
         self.cornerRadius = cornerRadius
     }
 }
+
+
+// MARK: - Fonts
+public struct FontConfigurations {
+    // Users can provide the font name
+    public var fontName: String?
+    
+    public init(fontName: String? = nil) {
+        self.fontName = fontName
+    }
+}
+
