@@ -439,3 +439,49 @@ public struct FontConfigurations {
     }
 }
 
+// MARK: - Typography
+public enum TextStyle {
+    case heading1
+    case heading2
+    case heading3
+    case body
+    case paragraph
+    
+    var fontWeight: Font.Weight {
+        switch self {
+        case .heading1:
+            return .black
+        case .heading2:
+            return .bold
+        case .heading3:
+            return .medium
+        case .body, .paragraph:
+            return .regular
+        }
+    }
+    
+    var fontSize: CGFloat {
+        switch self {
+        case .heading1:
+            return 50
+        case .heading2:
+            return 40
+        case .heading3:
+            return 35
+        case .body:
+            return 18
+        case .paragraph:
+            return 15
+        }
+    }
+    
+    var textColor: Color {
+        switch self {
+        case .heading1, .heading2, .heading3, .body:
+            return Color(UIColor(hex: "232B38"))
+        case .paragraph:
+            return Color(UIColor(hex: "718096"))
+        }
+    }
+}
+

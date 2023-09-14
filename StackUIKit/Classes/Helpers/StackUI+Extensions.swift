@@ -54,3 +54,8 @@ extension Image {
     }
 }
 
+public extension ToggleStyle where Self == ImageToggleStyle {
+    static func image(onImage: String, offImage: String) -> ImageToggleStyle {
+        return ImageToggleStyle(onImage: onImage, offImage: offImage)
+    }
+}

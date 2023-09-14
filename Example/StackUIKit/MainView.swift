@@ -42,6 +42,19 @@ struct MainView: View {
                 }, label: {
                     Text("Images")
                 })
+                
+                
+                NavigationLink(destination: {
+                    UtilitiesView()
+                }, label: {
+                    Text("Utilities")
+                })
+                
+                NavigationLink(destination: {
+                    TypographyView()
+                }, label: {
+                    Text("Typography")
+                })
             }
         }
     }

@@ -224,6 +224,7 @@ struct TextField4: View {
             
             if isActive {
                 searchResults()
+                    .frame(maxHeight: 300)
             }
         }
     }
@@ -236,6 +237,7 @@ struct TextField4: View {
                     .stroke(Color(UIColor(hex: "EDF2F7")), lineWidth: 1)
                     .frame(width: .infinity)
                 VStack {
+                    ScrollView(showsIndicators: false) {
                     ForEach(filtered, id: \.self) { value in
                         Button(action: {
                             withAnimation {
@@ -255,6 +257,7 @@ struct TextField4: View {
                         .padding(.top, filtered.first == value ? 7 : 0)
                         divider(isLast: filtered.last == value)
                     }
+                }
                 }
             }
         }

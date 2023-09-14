@@ -11,6 +11,9 @@
 		1B4FF30EB9D148D836527C87C25650EF /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E4B7F4F1586C09BDC3A17B294B455D /* Buttons.swift */; };
 		1D294396E740B54956143F28EAB6D333 /* StackUI+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B3DDF98C6447F09D92ED78B042FD1F /* StackUI+Modifiers.swift */; };
 		222C6EE42AB0B841009779AC /* StackUI+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C6EE32AB0B841009779AC /* StackUI+Functions.swift */; };
+		224C63792AB136E30043621D /* Switches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C63782AB136E30043621D /* Switches.swift */; };
+		224C637D2AB2604E0043621D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C637C2AB2604E0043621D /* Utilities.swift */; };
+		224C637F2AB29A130043621D /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C637E2AB29A130043621D /* Typography.swift */; };
 		23F3F15A4820C22AC8017A247C84EC04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		3DD142DDBED901E10F017B931523D54C /* Pods-StackUIKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7157DFA796D01054B53B038DFE1DDA93 /* Pods-StackUIKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		481F3BE2185022F134DFD932BBD79A40 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE4529DD380DDB848734F5F22DA8A7 /* BlurView.swift */; };
@@ -77,6 +80,9 @@
 		0EEF6D3B766D4F90ED6B1C407BE25FC4 /* AlertToast.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AlertToast.modulemap; sourceTree = "<group>"; };
 		1FB8592208899DB7A1E99C7B5EB11DA5 /* StackUI+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "StackUI+Extensions.swift"; sourceTree = "<group>"; };
 		222C6EE32AB0B841009779AC /* StackUI+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackUI+Functions.swift"; sourceTree = "<group>"; };
+		224C63782AB136E30043621D /* Switches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switches.swift; sourceTree = "<group>"; };
+		224C637C2AB2604E0043621D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		224C637E2AB29A130043621D /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		26EE4529DD380DDB848734F5F22DA8A7 /* BlurView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlurView.swift; path = Sources/AlertToast/BlurView.swift; sourceTree = "<group>"; };
 		33136DF6E19B4A5CC389D9364B1B7AB1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		39A55521963E7D5050D81155C8567055 /* AlertToast-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AlertToast-Info.plist"; sourceTree = "<group>"; };
@@ -269,6 +275,9 @@
 				00E4B7F4F1586C09BDC3A17B294B455D /* Buttons.swift */,
 				B1D03DC732BD995B8E09989D0DCDAD15 /* Cards.swift */,
 				A3A4A1B59A8EB45FF19B321365B4D4A3 /* Images.swift */,
+				224C63782AB136E30043621D /* Switches.swift */,
+				224C637C2AB2604E0043621D /* Utilities.swift */,
+				224C637E2AB29A130043621D /* Typography.swift */,
 				089C9000E408000B7732EA69BB5A960A /* TextFields.swift */,
 			);
 			name = Views;
@@ -534,13 +543,16 @@
 			files = (
 				1B4FF30EB9D148D836527C87C25650EF /* Buttons.swift in Sources */,
 				A38FF263FE9A773F8A58BB74B72F4691 /* Cards.swift in Sources */,
+				224C63792AB136E30043621D /* Switches.swift in Sources */,
 				5270721C879D3DB4742EBB168966AEF0 /* Images.swift in Sources */,
 				56CC218EB6B1EA83539A366D59AFD521 /* StackUI.swift in Sources */,
 				AE13FFF747FC656C6EC58B4A1FBB1E4C /* StackUI+Configurations.swift in Sources */,
+				224C637D2AB2604E0043621D /* Utilities.swift in Sources */,
 				6096A26347AC5B33352C4A0F22123E42 /* StackUI+Extensions.swift in Sources */,
 				1D294396E740B54956143F28EAB6D333 /* StackUI+Modifiers.swift in Sources */,
 				EF950709558597EF1A12D16613F5F7E5 /* StackUIKit-dummy.m in Sources */,
 				222C6EE42AB0B841009779AC /* StackUI+Functions.swift in Sources */,
+				224C637F2AB29A130043621D /* Typography.swift in Sources */,
 				AA0FE1A810A76288CA91A29723B3F564 /* TextFields.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
