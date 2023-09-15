@@ -22,6 +22,7 @@ struct Button1: View {
     var body: some View {
         Button(action: self.action) {
             Text(self.label)
+                .font(getFont(config: config.font, size: 15))
                 .fontWeight(config.size == .large ? .bold : .medium)
                 .frame(maxWidth: widthForButton())
                 .padding(.vertical, heightForButton())
@@ -74,6 +75,8 @@ struct Button2: View {
     var body: some View {
         Button(action: self.action) {
             Text(self.label)
+                .font(getFont(config: config.font, size: 15))
+                .fontWeight(config.size == .large ? .bold : .medium)
                 .frame(minWidth: 0, maxWidth: widthForButton())
                 .padding()
                 .background(Color.clear)
@@ -129,7 +132,7 @@ struct Button3: View {
                 Circle()
                     .frame(width: 80, height: 80)
                     .foregroundColor(Color(UIColor(hex: config.primaryColor)))
-                Image(systemName: "mic")
+                config.image
                     .foregroundColor(Color(UIColor(hex: config.textColor)))
             }
         }
@@ -159,7 +162,7 @@ struct Button4: View {
                         // Handle each button tap action
                         self.actions[index]()
                     }) {
-                        Text("+")
+                        Image(stackIcon: .plus)
                             .frame(width: 50, height: 50)
                             .background(Color(UIColor(hex: config.primaryColor)))
                             .foregroundColor(Color(UIColor(hex: config.textColor)))
@@ -175,7 +178,7 @@ struct Button4: View {
                         self.isExpanded.toggle()
                     }
                 }) {
-                    Text(isExpanded ? "x" : "+")
+                    config.image
                         .frame(width: 50, height: 50)
                         .padding()
                         .background(Color(UIColor(hex: config.primaryColor)))

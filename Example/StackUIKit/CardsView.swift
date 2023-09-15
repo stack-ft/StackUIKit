@@ -18,8 +18,9 @@ struct CardsView: View {
         return CardConfiguration(textColor: "1A202C", primaryColor: "FFFFFF", amount: "$56,476.00")
     }
     
+    let cardData = CardData(pan: "3827 4637 3103 7389", expDate: "10/24", cvv: "123", cardHolder: "John Wick")
     var config3: CardConfiguration {
-        return CardConfiguration(textColor: "FFFFFF", primaryColor: "FF1744", cardBrand: .masterCard, cardOverlayImg: "card-cover")
+        return CardConfiguration(textColor: "FFFFFF", primaryColor: "FF1744", cardBrand: .masterCard, cardOverlayImg: "card-cover", cardData: cardData)
     }
     var body: some View {
         ScrollView {
@@ -31,13 +32,6 @@ struct CardsView: View {
                     print("Tap Gesture")
                 }
                 .softShadow(color: "#0d0d0d")
-                
-                StackUI.Cards.DebitCard(action: {
-                    print("Tapped")
-                }, config: config3)
-                .onTapGesture {
-                    print("Tap Gesture")
-                }
 
                 
                 StackUI.Cards.InformationCard()
@@ -50,7 +44,10 @@ struct CardsView: View {
                 }
                 .softShadow(color: "5D6A83")
                 
-                
+                StackUI.Cards.DebitCard(config: config3)
+                .onTapGesture {
+                    print("Tap Gesture")
+                }
                 Spacer()
             }
             .padding()

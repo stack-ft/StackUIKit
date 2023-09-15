@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 
+//Currency text field
 struct TextField1: View {
     @Binding var amount: String
     let config: TextFieldConfiguration
@@ -48,6 +49,7 @@ struct TextField1: View {
     
 }
 
+//Regular text field
 struct TextField2: View {
     @Binding var text: String
     @State var isActive: Bool = false
@@ -99,6 +101,7 @@ struct TextField2: View {
     }
 }
 
+//Password field
 struct TextField3: View {
     @Binding var text: String
     @State var isActive: Bool = false
@@ -175,6 +178,7 @@ struct TextField3: View {
     }
 }
 
+//Search Field
 struct TextField4: View {
     @Binding var text: String
     @State var isActive: Bool = false
@@ -238,26 +242,26 @@ struct TextField4: View {
                     .frame(width: .infinity)
                 VStack {
                     ScrollView(showsIndicators: false) {
-                    ForEach(filtered, id: \.self) { value in
-                        Button(action: {
-                            withAnimation {
-                                text = value
-                                temporaryString = value
-                                isActive.toggle()
+                        ForEach(filtered, id: \.self) { value in
+                            Button(action: {
+                                withAnimation {
+                                    text = value
+                                    temporaryString = value
+                                    isActive.toggle()
+                                }
+                            }) {
+                                HStack {
+                                    Text(value)
+                                        .padding()
+                                        .foregroundColor(Color(UIColor(hex: "1A202C")))
+                                    Spacer()
+                                }
                             }
-                        }) {
-                            HStack {
-                                Text(value)
-                                    .padding()
-                                    .foregroundColor(Color(UIColor(hex: "1A202C")))
-                                Spacer()
-                            }
+                            .padding(.bottom, filtered.last == value ? 7 : 0)
+                            .padding(.top, filtered.first == value ? 7 : 0)
+                            divider(isLast: filtered.last == value)
                         }
-                        .padding(.bottom, filtered.last == value ? 7 : 0)
-                        .padding(.top, filtered.first == value ? 7 : 0)
-                        divider(isLast: filtered.last == value)
                     }
-                }
                 }
             }
         }
@@ -270,6 +274,27 @@ struct TextField4: View {
             Divider()
         }
     }
+}
+
+//Expanding Text Field
+
+struct TextField5: View {
+    @Binding var text: String
+    let config: TextFieldConfiguration
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            TextEditor(text: $text)
+                .font(.system(size: 17, weight: .regular))
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: config.cornerRadius)
+                        .stroke(Color(UIColor(hex:"EDF2F7")), lineWidth: 1)
+                )
+                .frame(minHeight: 60)
+        }
+    }
+    
 }
 
 

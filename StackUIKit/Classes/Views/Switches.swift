@@ -8,17 +8,6 @@
 import SwiftUI
 
 
-//struct ImageToggleStyleWrapper: ToggleStyle { //Acting as a bridge
-//    var onImage: String
-//    var offImage: String
-//    
-//    func makeBody(configuration: Configuration) -> some View {
-//        ImageToggleStyle(onImage: onImage, offImage: offImage).makeBody(configuration: configuration)
-//    }
-//}
-
-
-
 public struct ImageToggleStyle: ToggleStyle {
  
     var onImage: String

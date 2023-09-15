@@ -74,10 +74,11 @@ struct SoftShadow: ViewModifier {
     var radius: CGFloat = 20
     var x: CGFloat = 0
     var y: CGFloat = 10
+    var show: Bool = true
     
     func body(content: Content) -> some View {
         content
-            .shadow(color: Color(UIColor(hex: color)).opacity(0.2), radius: radius, x: x, y: y)
+            .shadow(color: Color(UIColor(hex: color)).opacity(show ? 0.2 : 0), radius: radius, x: x, y: y)
     }
 }
 
@@ -104,7 +105,7 @@ extension View {
         self.modifier(Wobble(isAnimating: isAnimating, angle: angle, repeatCount: repeatCount))
     }
     
-    public func softShadow(color: String = "194BFB", radius: CGFloat = 10, x: CGFloat = 0, y: CGFloat = 10) -> some View {
+    public func softShadow(color: String = "194BFB", radius: CGFloat = 10, x: CGFloat = 0, y: CGFloat = 10, show: Bool = true) -> some View {
         self.modifier(SoftShadow(color: color, radius: radius, x: x, y: y))
     }
 }

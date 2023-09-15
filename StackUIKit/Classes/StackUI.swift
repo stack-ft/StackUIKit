@@ -36,7 +36,7 @@ public enum StackUI {
 //MARK: - Cards
     public enum Cards {
         
-        public static func BalanceCard(action: @escaping () -> Void, config: CardConfiguration = CardConfiguration(), type: BalanceCardType = .one) -> some View {
+        public static func BalanceCard(action: @escaping () -> Void, config: CardConfiguration = CardConfiguration(), type: CardType = .one) -> some View {
             switch type {
             case .one:
                 return AnyView(Card1(config: config))
@@ -45,8 +45,13 @@ public enum StackUI {
             }
         }
         
-        public static func DebitCard(action: @escaping () -> Void, config: CardConfiguration = CardConfiguration()) -> some View {
-            DebitCard1(config: config)
+        public static func DebitCard(config: CardConfiguration = CardConfiguration(), type: CardType = .one) -> some View {
+            switch type {
+            case .one:
+                return AnyView(DebitCard1(config: config))
+            case .two:
+                return AnyView(DebitCard2(config: config))
+            }
         }
         
         public static func InformationCard(action: (() -> Void)? = nil, config: CardConfiguration = CardConfiguration()) -> some View {
@@ -71,6 +76,10 @@ public enum StackUI {
         
         public static func SearchTextField(text: Binding<String>, config: TextFieldConfiguration = TextFieldConfiguration()) -> some View {
             TextField4(config: config, text: text)
+        }
+        
+        public static func ExpandingTextField(text: Binding<String>, config: TextFieldConfiguration = TextFieldConfiguration()) -> some View {
+            TextField5(text: text, config: config)
         }
     }
     

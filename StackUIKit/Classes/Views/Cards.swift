@@ -156,6 +156,35 @@ struct DebitCard1: View {
         ZStack {
             Color.clear
             cardBackground(background: config.primaryColor, cornerRadius: config.cornerRadius)
+                .offset(y: isVisible ? 70 : 0)
+                .overlay (
+                    VStack {
+                        Spacer()
+                        HStack {
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text("Card CVV")
+                                    .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                    .font(getFont(config: config.font, size: 10))
+                                    .fontWeight(.regular)
+                                    .minimumScaleFactor(0.5)
+                                    .lineLimit(1)
+                                Text(config.cardData?.cvv ?? "")
+                                    .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                    .font(getFont(config: config.font, size: 15))
+                                    .fontWeight(.medium)
+                                    .minimumScaleFactor(0.5)
+                                    .lineLimit(1)
+                                
+                            }
+                            Spacer()
+                        }
+                    }
+                    .offset(y: isVisible ? 70 : 0)
+                    .padding(25)
+                    
+                )
+            cardBackground(background: config.primaryColor, cornerRadius: config.cornerRadius)
+                .softShadow(color: "232B38", show: isVisible)
                 .overlay(
                     Image(named: config.cardOverlayImg)
                         .resizable()
@@ -178,8 +207,8 @@ struct DebitCard1: View {
                                 .lineLimit(1)
                         }
                         Spacer()
-                        
-                        Text(isVisible ? "3827 4637 3103 7389" : "**** 7389")
+
+                        Text(isVisible ? config.cardData?.pan ?? "" : "**** \(config.cardData?.pan.suffix(4) ?? "")")
                             .foregroundColor(Color(UIColor(hex: config.textColor)))
                             .font(getFont(config: config.font, size: 25))
                             .fontWeight(.bold)
@@ -193,9 +222,9 @@ struct DebitCard1: View {
                             .onTapGesture {
                                 copyNumber = true
                             }
-                        
+
                         Spacer()
-                        
+
                         HStack {
                             VStack(alignment: .leading, spacing: 5) {
                                 Text("Card Holder name")
@@ -204,13 +233,13 @@ struct DebitCard1: View {
                                     .fontWeight(.regular)
                                     .minimumScaleFactor(0.5)
                                     .lineLimit(1)
-                                Text("John Doe")
+                                Text(config.cardData?.cardHolder ?? "")
                                     .foregroundColor(Color(UIColor(hex: config.textColor)))
                                     .font(getFont(config: config.font, size: 15))
                                     .fontWeight(.medium)
                                     .minimumScaleFactor(0.5)
                                     .lineLimit(1)
-                                
+
                             }
                             Spacer()
                             VStack(alignment: .leading, spacing: 5) {
@@ -220,7 +249,7 @@ struct DebitCard1: View {
                                     .fontWeight(.regular)
                                     .minimumScaleFactor(0.5)
                                     .lineLimit(1)
-                                Text("02/30")
+                                Text(config.cardData?.expDate ?? "")
                                     .foregroundColor(Color(UIColor(hex: config.textColor)))
                                     .font(getFont(config: config.font, size: 15))
                                     .fontWeight(.medium)
@@ -233,7 +262,7 @@ struct DebitCard1: View {
                                 .scaledToFit()
                                 .frame(width: 70, height: 35)
                         }
-                        
+
                     }.padding(25)
                 )
         }
@@ -245,6 +274,139 @@ struct DebitCard1: View {
         }
     }
 }
+
+struct DebitCard2: View {
+    let config: CardConfiguration
+    @State var isVisible: Bool = false
+    //TOAST
+    @State var copyNumber: Bool = false
+    
+    var body: some View {
+        VStack(spacing: 0) { // VStack to stack the views vertically
+            ZStack {
+                cardBackground(background: config.primaryColor, cornerRadius: config.cornerRadius)
+                    .overlay(
+                        Image(named: config.cardOverlayImg)
+                            .resizable()
+                            .scaledToFill()
+                            .mask(RoundedRectangle(cornerRadius: config.cornerRadius))
+                    )
+                    .overlay (
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Button(action: toggleVisibility) {
+                                    Image(isVisible ? "hide" : "view", bundle: bundle)
+                                        .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.9)))
+                                }
+                                Spacer()
+                                Text(config.brandName)
+                                    .foregroundColor(Color(UIColor(hex: config.textColor, alpha: 0.9)))
+                                    .font(getFont(config: config.font, size: 20))
+                                    .fontWeight(.bold)
+                                    .minimumScaleFactor(0.5)
+                                    .lineLimit(1)
+                            }
+                            Spacer()
+
+                            Text(isVisible ? config.cardData?.pan ?? "" : "**** \(config.cardData?.pan.suffix(4) ?? "")")
+                                .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                .font(getFont(config: config.font, size: 25))
+                                .fontWeight(.bold)
+                                .minimumScaleFactor(0.5)
+                                .lineLimit(1)
+                                .toast(isPresenting: $copyNumber, alert: {
+                                    AlertToast(type: .regular, title: "Copied!")
+                                },completion: {
+                                    copyNumber = false
+                                 })
+                                .onTapGesture {
+                                    copyNumber = true
+                                }
+
+                            Spacer()
+
+                            HStack {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text("Card Holder name")
+                                        .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                        .font(getFont(config: config.font, size: 10))
+                                        .fontWeight(.regular)
+                                        .minimumScaleFactor(0.5)
+                                        .lineLimit(1)
+                                    Text(config.cardData?.cardHolder ?? "")
+                                        .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                        .font(getFont(config: config.font, size: 15))
+                                        .fontWeight(.medium)
+                                        .minimumScaleFactor(0.5)
+                                        .lineLimit(1)
+
+                                }
+                                Spacer()
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text("Expiry date")
+                                        .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                        .font(getFont(config: config.font, size: 10))
+                                        .fontWeight(.regular)
+                                        .minimumScaleFactor(0.5)
+                                        .lineLimit(1)
+                                    Text(config.cardData?.expDate ?? "")
+                                        .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                        .font(getFont(config: config.font, size: 15))
+                                        .fontWeight(.medium)
+                                        .minimumScaleFactor(0.5)
+                                        .lineLimit(1)
+                                }
+                                Spacer()
+                                Image(config.cardBrand.imageName, bundle: bundle)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 70, height: 35)
+                            }
+
+                        }.padding(25)
+                    )
+            }
+            ZStack {
+                Color.clear
+                RoundedRectangle(cornerRadius: config.cornerRadius)
+                    .fill(Color(UIColor(hex: "config.primaryColor")))
+                    .overlay (
+                        VStack {
+                            Spacer()
+                            HStack {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text("Card CVV")
+                                        .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                        .font(getFont(config: config.font, size: 10))
+                                        .fontWeight(.regular)
+                                        .minimumScaleFactor(0.5)
+                                        .lineLimit(1)
+                                    Text(config.cardData?.cvv ?? "")
+                                        .foregroundColor(Color(UIColor(hex: config.textColor)))
+                                        .font(getFont(config: config.font, size: 15))
+                                        .fontWeight(.medium)
+                                        .minimumScaleFactor(0.5)
+                                        .lineLimit(1)
+                                }
+                                Spacer()
+                            }
+                        }
+                        .padding(25)
+                    )
+                .opacity(isVisible ? 1 : 0) // Show/hide based on isVisible
+            }
+            .frame(height: isVisible ? 100 : 0) // Adjust height based on isVisible
+            
+        }
+    }
+    
+    private func toggleVisibility() {
+        withAnimation {
+            isVisible.toggle()
+        }
+    }
+}
+
 
 struct InformationCard1: View {
     let config: CardConfiguration
@@ -269,11 +431,11 @@ struct InformationCard1: View {
                         }
                         
                         VStack(alignment: .leading, spacing: 2) {
-                            Text("Information Title")
+                            Text(config.informationTitle)
                                 .foregroundColor(Color(UIColor(hex: "1A202C")))
                                 .font(getFont(config: config.font, size: 16))
                                 .fontWeight(.medium)
-                            Text("Multi-users access, accounting, and using our API")
+                            Text(config.informationBody)
                                 .foregroundColor(Color(UIColor(hex: "718096")))
                                 .font(getFont(config: config.font, size: 13))
                                 .fontWeight(.regular)

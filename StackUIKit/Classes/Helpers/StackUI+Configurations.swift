@@ -20,6 +20,9 @@ public struct CardConfiguration {
     let cardOverlayImg: String
     let currency: String
     let font: FontConfigurations
+    let cardData: CardData?
+    let informationTitle: String
+    let informationBody: String
     
     public init(textColor: String = "FCFCFC",
                 primaryColor: String = "194BFB",
@@ -29,7 +32,10 @@ public struct CardConfiguration {
                 amount: String = "$500.00",
                 cardOverlayImg: String = "cardMask",
                 currency: String = "USD",
-                font: FontConfigurations = FontConfigurations()) {
+                font: FontConfigurations = FontConfigurations(),
+                cardData: CardData? = nil,
+                informationTitle: String = "Information Title",
+                informationBody: String = "Change this by customizing the CardConfiguration paramater") {
         self.primaryColor = primaryColor
         self.textColor = textColor
         self.cardBrand = cardBrand
@@ -39,6 +45,26 @@ public struct CardConfiguration {
         self.cardOverlayImg = cardOverlayImg
         self.currency = currency
         self.font = font
+        self.cardData = cardData
+        self.informationTitle = informationTitle
+        self.informationBody = informationBody
+    }
+}
+
+public struct CardData {
+    let pan: String
+    let expDate: String
+    let cvv: String
+    let cardHolder: String
+    
+    public init(pan: String,
+                expDate: String,
+                cvv: String,
+                cardHolder: String) {
+        self.pan = pan
+        self.expDate = expDate
+        self.cvv = cvv
+        self.cardHolder = cardHolder
     }
 }
 
@@ -61,7 +87,7 @@ public enum CardBrand {
     }
 }
 
-public enum BalanceCardType {
+public enum CardType {
     case one
     case two
 }
@@ -76,6 +102,8 @@ public struct ButtonConfiguation {
     let cornerRadius: CGFloat
     let disabled: Bool
     let isLiked: Bool
+    let font: FontConfigurations
+    let image: Image
     
     public init(textColor: String = "FCFCFC",
                 primaryColor: String = "194BFB",
@@ -83,7 +111,9 @@ public struct ButtonConfiguation {
                 size: ButtonSize = .medium,
                 cornerRadius: CGFloat = 17.0,
                 disabled: Bool = false,
-                isLiked: Bool = false) {
+                isLiked: Bool = false,
+                font: FontConfigurations = FontConfigurations(),
+                image: Image = Image(stackIcon: .plus)) {
         self.textColor = textColor
         self.primaryColor = primaryColor
         self.width = width
@@ -91,6 +121,8 @@ public struct ButtonConfiguation {
         self.cornerRadius = cornerRadius
         self.disabled = disabled
         self.isLiked = isLiked
+        self.font = font
+        self.image = image
     }
 }
 
@@ -116,6 +148,7 @@ public struct TextFieldConfiguration {
     let cornerRadius: CGFloat
     let validationType: TextFieldValidations
     let searchableOptions: [String]
+    let font: FontConfigurations
     
     public init(placeHolderText: String = "Enter Text",
                 activeColor: String = "194BFB",
@@ -123,7 +156,8 @@ public struct TextFieldConfiguration {
                 placeHolderImage: String = "usa",
                 cornerRadius: CGFloat = 17,
                 validationType: TextFieldValidations = .none,
-                searchableOptions: [String] = []) {
+                searchableOptions: [String] = [],
+                font: FontConfigurations = FontConfigurations()) {
         self.placeHolderText = placeHolderText
         self.activeColor = activeColor
         self.currencySymbol = currencySymbol
@@ -131,6 +165,7 @@ public struct TextFieldConfiguration {
         self.cornerRadius = cornerRadius
         self.validationType = validationType
         self.searchableOptions = searchableOptions
+        self.font = font
     }
 }
 
