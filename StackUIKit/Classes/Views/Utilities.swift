@@ -25,7 +25,7 @@ public struct StarRatingView: View {
     
     public var body: some View {
         HStack(spacing: 3) {
-            ForEach(1..<maxRating + 1) { index in
+            ForEach(Array(1...maxRating), id: \.self) { index in
                 Image(stackIcon: index <= self.rating ? .one_star_fill : .one_star_outline)
                     .resizable()
                     .scaledToFit()
