@@ -5,11 +5,20 @@
 [![License](https://img.shields.io/cocoapods/l/StackUIKit.svg?style=flat)](https://cocoapods.org/pods/StackUIKit)
 [![Platform](https://img.shields.io/cocoapods/p/StackUIKit.svg?style=flat)](https://cocoapods.org/pods/StackUIKit)
 
-## Example
+## Table of contents
+- [Example App](## exampleApp)
+- [Requirements](## requirements)
+- [Installation](## installation)
+- Usage
+    - Customization
+
+## Example App
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+This Library has a minimum IOS version requirement of `14.0`
 
 ## Installation
 
