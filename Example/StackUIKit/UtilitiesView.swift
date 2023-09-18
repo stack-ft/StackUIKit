@@ -24,7 +24,7 @@ struct UtilitiesView: View {
                 .toggleStyle(.image(onImage: "light", offImage: "dark"))
                 .padding()
                 
-                StarRatingView(rating: $currentRating)
+                StackUI.Utilities.StarRating(rating: $currentRating)
                 
                 Text("Current Rating: \(currentRating)")
                 

@@ -97,6 +97,12 @@ public enum StackUI {
         }
     }
 
+    //MARK: - Utilities
+    public enum Utilities {
+        public static func StarRating(rating: Binding<Int>, maxRating: Int = 5, starSize: CGFloat = 30, onColor: Color = .yellow, offColor: Color = .gray) -> some View {
+            StarRatingView(rating: rating, maxRating: maxRating, starSize: starSize, onColor: onColor, offColor: offColor)
+        }
+    }
 }
 
 

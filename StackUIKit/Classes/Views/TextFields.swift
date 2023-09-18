@@ -16,11 +16,13 @@ struct TextField1: View {
         ZStack {
             RoundedRectangle(cornerRadius: config.cornerRadius)
                 .fill(.clear)
-                .frame(width: .infinity, height: 100)
+                .frame(maxWidth: .infinity)
+                .frame(height: 100)
                 .overlay (
                     RoundedRectangle(cornerRadius: config.cornerRadius)
                         .stroke(Color(UIColor(hex: "EDF2F7")), lineWidth: 1)
-                        .frame(width: .infinity, height: 100)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 100)
                 )
                 .overlay (
                     VStack(alignment: .leading) {
@@ -239,7 +241,7 @@ struct TextField4: View {
             if filtered != [] {
                 RoundedRectangle(cornerRadius: config.cornerRadius)
                     .stroke(Color(UIColor(hex: "EDF2F7")), lineWidth: 1)
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                 VStack {
                     ScrollView(showsIndicators: false) {
                         ForEach(filtered, id: \.self) { value in

@@ -29,7 +29,3 @@ func getFont(config: FontConfigurations, size: CGFloat) -> Font {
     return Font.system(size: size) // You can adjust the default size as needed
 }
 
-
-//public func ImageToggleStyle(onImage: String, offImage: String) -> some ToggleStyle {
-//    return ImageToggleStyleWrapper(onImage: onImage, offImage: offImage)
-//}

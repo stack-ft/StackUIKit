@@ -220,7 +220,6 @@ struct Button5: View {
         }) {
             Image(stackIcon: isLiked ? .heart_fill : .heart_outline)
                 .foregroundColor(Color(UIColor(hex: config.primaryColor)))
-                .padding()
                 .scaleEffect(animate ? 1.2 : 1.0)
                 .rotationEffect(animate ? .degrees(10) : .degrees(0))
         }

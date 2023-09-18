@@ -76,7 +76,8 @@ struct BalanceCard2: View {
         ZStack {
             RoundedRectangle(cornerRadius: config.cornerRadius)
                 .fill(Color(UIColor(hex: config.primaryColor)))
-                .frame(width: .infinity, height: 170)
+                .frame(maxWidth: .infinity)
+                .frame(height: 170)
                 .overlay(
                     VStack {
                         
@@ -415,7 +416,8 @@ struct InformationCard1: View {
         ZStack {
             RoundedRectangle(cornerRadius: config.cornerRadius)
                 .fill(.white)
-                .frame(width: .infinity, height: 90)
+                .frame(maxWidth: .infinity)
+                .frame(height: 90)
                 .overlay(
                     RoundedRectangle(cornerRadius: config.cornerRadius)
                         .stroke(Color(UIColor(hex: config.primaryColor)), lineWidth: 1)
@@ -452,5 +454,6 @@ struct InformationCard1: View {
 private func cardBackground(background: String, cornerRadius: CGFloat) -> some View {
     RoundedRectangle(cornerRadius: cornerRadius)
         .fill(Color(UIColor(hex: background)))
-        .frame(width: .infinity, height: 230)
+        .frame(maxWidth: .infinity)
+        .frame(height: 230)
 }

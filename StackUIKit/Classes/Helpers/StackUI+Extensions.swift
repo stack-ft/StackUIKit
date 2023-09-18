@@ -8,17 +8,8 @@
 import Foundation
 import SwiftUI
 
-extension Color {
-    var hex: String {
-        let components = self.cgColor!.components!
-        let r = Int(components[0] * 255)
-        let g = Int(components[1] * 255)
-        let b = Int(components[2] * 255)
-        return String(format: "#%02X%02X%02X", r, g, b)
-    }
-}
 
-extension UIColor {
+public extension UIColor {
     convenience init(hex: String, alpha: CGFloat = 1.0) {
         var hexValue = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         

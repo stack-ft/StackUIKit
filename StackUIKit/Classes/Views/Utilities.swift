@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct StarRatingView: View {
+struct StarRatingView: View {
     @State private var animate: Bool = false
     @Binding var rating: Int
     let maxRating: Int
