@@ -6,11 +6,11 @@
 [![Platform](https://img.shields.io/cocoapods/p/StackUIKit.svg?style=flat)](https://cocoapods.org/pods/StackUIKit)
 
 ## Table of contents
-- [Example App](## exampleApp)
-- [Requirements](## requirements)
-- [Installation](## installation)
-- Usage
-    - Customization
+- [Example App](#example-app)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+    - [Customization](#customization)
 
 ## Example App
 
