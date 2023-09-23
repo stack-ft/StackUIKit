@@ -22,20 +22,25 @@ public struct Typography1: View {
     }
     public var body: some View {
         Group {
-            VStack(spacing: 10) {
+            VStack(alignment: .leading, spacing: 10) {
                 Text(text)
                     .font(getFont(config: font, size: style.fontSize))
                     .fontWeight(style.fontWeight)
                     .foregroundColor((font.textColor != nil) ? font.textColor : style.textColor)
                 
                 if let url = detectURL(text: text){
-                    // Use RichLinkView for detected URLs
-                    RichLinkView(url: url)
+                    // Use LinkViewRepresentable for detected URLs
+                    LinkViewRepresentable(metadata: getMetadata(url: url))
                 }
             }
         }
     }
-
+    
+    private func getMetadata(url: URL) -> LPLinkMetadata {
+        let metadata = LPLinkMetadata()
+        metadata.originalURL = url
+        return metadata
+    }
     
     private func detectURL(text: String) -> URL? {
         let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
@@ -51,27 +56,41 @@ public struct Typography1: View {
 
 }
 
-struct RichLinkView: UIViewRepresentable {
-    let url: URL
 
-    init(url: URL) {
-        self.url = url
-    }
+class CustomLinkView: LPLinkView {
+    override var intrinsicContentSize: CGSize { CGSize(width: 0, height: super.intrinsicContentSize.height) }
+}
+
+struct LinkViewRepresentable: UIViewRepresentable {
+ 
+    typealias UIViewType = CustomLinkView
     
-    func makeUIView(context: Context) -> LPLinkView {
-        let view = LPLinkView(url: url)
-        view.backgroundColor = .clear
-        
+    var metadata: LPLinkMetadata?
+ 
+    func makeUIView(context: Context) -> CustomLinkView {
         let provider = LPMetadataProvider()
-        provider.startFetchingMetadata(for: url) { metadata, _ in
-            if let metadata = metadata {
-                view.metadata = metadata
+        
+        guard let originalURL = metadata?.originalURL else {
+            return CustomLinkView()
+        }
+        guard let metadata = metadata else {
+            return CustomLinkView()
+        }
+        let linkView = CustomLinkView(metadata: metadata)
+        
+        // Fetch metadata for the original URL
+        provider.startFetchingMetadata(for: originalURL) { fetchedMetadata, _ in
+            DispatchQueue.main.async {
+                if let fetchedMetadata = fetchedMetadata {
+                    linkView.metadata = fetchedMetadata
+                }
             }
         }
-        return view
+        
+        return linkView
     }
-    
-    func updateUIView(_ uiView: LPLinkView, context: Context) {
-        // This method is required but you don't need to implement anything here
+
+ 
+    func updateUIView(_ uiView: CustomLinkView, context: Context) {
     }
 }
