@@ -18,6 +18,8 @@ struct TypographyView: View {
                 StackUI.Typography.Text(text: "Hello world", style: .heading3)
                 StackUI.Typography.Text(text: "Hello world", style: .body)
                 StackUI.Typography.Text(text: "Hello world", style: .paragraph)
+                StackUI.Typography.Text(text: "Hello with link https://google.com", style: .body)
+                    
             }
             
             HStack {
@@ -32,7 +34,9 @@ struct TypographyView: View {
                 StackUI.Typography.Text(text: "Hello world", style: .paragraph, font: FontConfigurations(fontName: "Smoothing"))
             }
             
-        }.padding()
+        }
+        .padding()
+
     }
 }
 

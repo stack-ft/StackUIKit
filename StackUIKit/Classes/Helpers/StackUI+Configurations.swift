@@ -467,10 +467,13 @@ public struct ImageViewConfigurations {
 // MARK: - Fonts
 public struct FontConfigurations {
     // Users can provide the font name
-    public var fontName: String?
+    let fontName: String?
+    let textColor: Color?
     
-    public init(fontName: String? = nil) {
+    public init(fontName: String? = nil,
+                textColor: String? = nil) {
         self.fontName = fontName
+        self.textColor = (textColor != nil) ? Color(UIColor(hex: textColor ?? "")) : nil
     }
 }
 

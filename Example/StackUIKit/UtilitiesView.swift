@@ -12,6 +12,7 @@ import StackUIKit
 struct UtilitiesView: View {
     @State var isEnabled: Bool = false
     @State private var currentRating = 0
+    @State private var showToast: Bool = false
     var body: some View {
         ZStack {
             
@@ -29,6 +30,10 @@ struct UtilitiesView: View {
                 Text("Current Rating: \(currentRating)")
                 
             }
+        }
+        .stackUIToast(config: CardConfiguration(), showToast: $showToast)
+        .onAppear {
+            showToast = true
         }
     }
 }

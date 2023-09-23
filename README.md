@@ -18,7 +18,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-This Library has a minimum IOS version requirement of `14.0`
+This Library has a minimum IOS version requirement of `14.0` and is built for SwiftUI
 
 ## Installation
 

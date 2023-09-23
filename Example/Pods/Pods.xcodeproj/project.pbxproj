@@ -14,6 +14,7 @@
 		224C63792AB136E30043621D /* Switches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C63782AB136E30043621D /* Switches.swift */; };
 		224C637D2AB2604E0043621D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C637C2AB2604E0043621D /* Utilities.swift */; };
 		224C637F2AB29A130043621D /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C637E2AB29A130043621D /* Typography.swift */; };
+		2280A9FB2AB8D99F008ED774 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2280A9FA2AB8D99F008ED774 /* ToastView.swift */; };
 		23F3F15A4820C22AC8017A247C84EC04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		3DD142DDBED901E10F017B931523D54C /* Pods-StackUIKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7157DFA796D01054B53B038DFE1DDA93 /* Pods-StackUIKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		481F3BE2185022F134DFD932BBD79A40 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE4529DD380DDB848734F5F22DA8A7 /* BlurView.swift */; };
@@ -83,6 +84,7 @@
 		224C63782AB136E30043621D /* Switches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switches.swift; sourceTree = "<group>"; };
 		224C637C2AB2604E0043621D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		224C637E2AB29A130043621D /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		2280A9FA2AB8D99F008ED774 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		26EE4529DD380DDB848734F5F22DA8A7 /* BlurView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlurView.swift; path = Sources/AlertToast/BlurView.swift; sourceTree = "<group>"; };
 		33136DF6E19B4A5CC389D9364B1B7AB1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		39A55521963E7D5050D81155C8567055 /* AlertToast-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AlertToast-Info.plist"; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				224C63782AB136E30043621D /* Switches.swift */,
 				224C637C2AB2604E0043621D /* Utilities.swift */,
 				224C637E2AB29A130043621D /* Typography.swift */,
+				2280A9FA2AB8D99F008ED774 /* ToastView.swift */,
 				089C9000E408000B7732EA69BB5A960A /* TextFields.swift */,
 			);
 			name = Views;
@@ -549,6 +552,7 @@
 				AE13FFF747FC656C6EC58B4A1FBB1E4C /* StackUI+Configurations.swift in Sources */,
 				224C637D2AB2604E0043621D /* Utilities.swift in Sources */,
 				6096A26347AC5B33352C4A0F22123E42 /* StackUI+Extensions.swift in Sources */,
+				2280A9FB2AB8D99F008ED774 /* ToastView.swift in Sources */,
 				1D294396E740B54956143F28EAB6D333 /* StackUI+Modifiers.swift in Sources */,
 				EF950709558597EF1A12D16613F5F7E5 /* StackUIKit-dummy.m in Sources */,
 				222C6EE42AB0B841009779AC /* StackUI+Functions.swift in Sources */,

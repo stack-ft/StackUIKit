@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'StackUIKit'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'A robust UIKit for rapidly building Fintech applications'
   s.swift_version = '5.0'
 

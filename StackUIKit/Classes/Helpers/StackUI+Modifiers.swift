@@ -31,6 +31,17 @@ struct Rotating: ViewModifier {
     }
 }
 
+struct OverrideForegroundColorModifier: ViewModifier {
+    let color: Color
+
+    func body(content: Content) -> some View {
+        ZStack {
+            content
+        }
+        .foregroundColor(color)
+    }
+}
+
 struct Glowing: ViewModifier {
     @Binding var isAnimating: Bool
     var color: String
@@ -107,6 +118,10 @@ extension View {
     
     public func softShadow(color: String = "194BFB", radius: CGFloat = 10, x: CGFloat = 0, y: CGFloat = 10, show: Bool = true) -> some View {
         self.modifier(SoftShadow(color: color, radius: radius, x: x, y: y))
+    }
+    
+    public func overrideForegroundColor(_ color: String) -> some View {
+        self.modifier(OverrideForegroundColorModifier(color: Color(UIColor(hex: color))))
     }
 }
 
